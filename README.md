@@ -1,3 +1,3 @@
 # Puddle
-<p>This is a simple django real estate website.</p>
+<p>This is a simple django based real estate website.</p>
 
