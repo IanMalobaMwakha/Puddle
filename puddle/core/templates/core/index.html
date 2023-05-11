@@ -11,12 +11,13 @@
                 <div>
                     <a href="#">
                         <div>
-                            <img src="{{ item.image.url}}" class="rounded-t-xl">
+                            <img src="{{ item.image.url }}" class="rounded-t-xl">
                         </div>
 
-
-
-
+                        <div classs="p-6 bg-white rounded-b-xl">
+                            <h2 cclass="text-2xl">{{ item.title }}</h2>
+                            <p class="text-gray-500">Price: ${{ item.price }}</p>
+                        </div>
                     </a>
 
                 </div>
