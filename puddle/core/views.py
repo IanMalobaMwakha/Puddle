@@ -3,7 +3,7 @@ from django.shortcuts import render
 from items.models import Cartegory, Item
 
 def index(request):
-    items = Item.objects.filter(is_sold=False) [0:6]
+    items = Item.objects.filter(is_sold=False) [0:10]
     categories = Cartegory.objects.all()
 
     return render(request, 'core/index.html',{
