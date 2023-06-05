@@ -9,13 +9,13 @@
         <div class="grid grid-cols-3 gap-3">
             {% for item in items %}
                 <div>
-                    <a href="{% url 'item:detail' item.id %}">
+                    <a href="{% url 'items:detail' item.id %}">
                         <div>
                             <img src="{{ item.image.url }}" class="rounded-t-xl">
                         </div>
 
                         <div class="p-6 bg-white rounded-b-xl">
-                            <h2 class="text-2xl no-underline hover:underline hover:text-red-500">{{ item.name }}</h2>
+                            <h2 class="text-blue-600 text-2xl no-underline hover:underline hover:text-red-500">{{ item.name }}</h2>
                             <p class="text-gray-500">Price: ${{ item.price }}</p>
                         </div>
                     </a>

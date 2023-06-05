@@ -5,12 +5,12 @@ from items.models import Cartegory, Item
 from .forms import SignupForm
 
 def index(request):
-    item = Item.objects.filter(is_sold=False) [0:10]
+    items = Item.objects.filter(is_sold=False) [0:10]
     categories = Cartegory.objects.all()
 
     return render(request, 'core/index.html',{
         'categories': categories,
-        'item': item
+        'items': items
     })
 
 
