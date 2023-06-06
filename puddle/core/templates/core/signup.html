@@ -9,7 +9,12 @@
     <form method="post" action=".">
         {% csrf_token %}
 
-        {{ form.as_p}}
+        {{ form.non_filed_errors }}
+
+        <div class="mb-3">
+            <label class="inline-block mb-2">Username</label>
+            {{ form.username }}
+        </div>
 
         <button class="py4 px-8 text-lg bg-teal-400 hover:bg-teal-700 rounded-xl text-white">Submit</button>
     </form>
