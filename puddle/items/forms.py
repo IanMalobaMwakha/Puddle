@@ -6,9 +6,8 @@ class NewItemForm(forms.ModelForm):
     class Meta:
         model = Item
         fields = ('cartegory', 'name', 'description', 'price', 'image',)
-
         widgets = {
-            'category': forms.Select(attrs={
+            'cartegory': forms.Select(attrs={
                 'class': 'w-full py-4 px-6 rounded-xl border'
             })
         }
