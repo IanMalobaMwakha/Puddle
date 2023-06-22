@@ -41,9 +41,7 @@ def edit(request, pk):
         form = EditItemForm(request.POST, request.FILES)
 
         if form.is_valid():
-            item = form.save(commit=False)
-            item.created_by = request.user
-            item.save()
+            form.save()
 
             return redirect('items:detail', pk=item.id)
     else:
