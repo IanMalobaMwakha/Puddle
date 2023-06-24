@@ -9,7 +9,7 @@ def items(request):
     items = Item.objects.filter(is_sold=False)
 
     if query:
-        items = items.filter(name=query)
+        items = items.filter(name__icontains=query)
 
     return render(request, 'item/items.html', {
         'items': items,
