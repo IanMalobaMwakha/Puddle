@@ -16,7 +16,7 @@
             <p class="font-semibold">Categories</p>
             <ul>
                 {% for cartegory in categories %}
-                    <li class="py-2 px-2 rounded-xl hover:text-gray-100">
+                    <li class="py-2 px-2 rounded-xl hover:text-gray-100{% if cartegory.id == cartegory_id %} bg-gray-200 {% endif %}">
                         <a href="{% url 'items:items' %}?query={{ query }}&cartegory={{ cartegory.id }}">{{ cartegory.name }}</a>
                     </li>
                 {% endfor %}
