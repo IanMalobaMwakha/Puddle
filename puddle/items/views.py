@@ -3,10 +3,11 @@ from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import NewItemForm, EditItemForm
-from .models import Item
+from .models import Cartegory, Item
 
 def items(request):
     query = request.GET.get('query', '')
+    categories = Category.objects.all()
     items = Item.objects.filter(is_sold=False)
 
     if query:
@@ -15,6 +16,7 @@ def items(request):
     return render(request, 'item/items.html', {
         'items': items,
         'query': query,
+        'categories': categories,
     })
 
 def detail(request, pk):
