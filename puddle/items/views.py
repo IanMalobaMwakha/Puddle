@@ -7,6 +7,7 @@ from .models import Cartegory, Item
 
 def items(request):
     query = request.GET.get('query', '')
+    cartegory_id = request.GET.get('cartegory_id', 0)
     categories = Cartegory.objects.all()
     items = Item.objects.filter(is_sold=False)
 
