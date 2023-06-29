@@ -18,6 +18,7 @@ def items(request):
         'items': items,
         'query': query,
         'categories': categories,
+        'cartegory_id': cartegory_id,
     })
 
 def detail(request, pk):
