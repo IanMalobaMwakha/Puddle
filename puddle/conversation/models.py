@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+from items.models import Item
+
+class Conversation(models.Model):
+    item
