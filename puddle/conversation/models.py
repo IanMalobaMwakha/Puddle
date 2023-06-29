@@ -12,7 +12,7 @@ class Conversation(models.Model):
     class Meta:
         odering = ('-modified_at', )
 
-class ConversationMessage(models.Models):
+class ConversationMessage(models.Model):
     conversation = models.ForeignKey(Conversation, related_name='messages', on_delete=models.CASCADE)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
