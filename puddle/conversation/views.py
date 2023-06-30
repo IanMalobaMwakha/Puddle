@@ -35,6 +35,6 @@ def new_conversation(request, item_pk):
     else:
         form = ConversationMessageForm()    
         
-    return render(request, 'conversation/new.html'{
+    return render(request, 'conversation/new.html',{
         'form': form
     })
