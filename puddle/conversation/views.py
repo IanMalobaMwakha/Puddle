@@ -26,4 +26,7 @@ def new_conversation(request, item_pk):
             conversation.members.add(item.created_by)
             conversation.save()
 
-    
+            conversation_message = form.save(commit=False)
+            conversation_message.conversation = conversation
+            conversation_message.created_by = request.user
+            conversation_message.save()
