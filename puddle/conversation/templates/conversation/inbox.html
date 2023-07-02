@@ -5,7 +5,9 @@
 {% block content %}
 
 <h1 class="mb-6 text-3xl">Inbox</h1>
+<hr class="border-2 border-black my-4">
 
+{% if conversations %}
 <div class="space-y-6">
     {% for conversation in conversations %}
         <a href="{% url 'conversation:detail' conversation.id %}">
@@ -26,7 +28,8 @@
         </a>
         <hr class="border-2 border-black my-4">
     {% endfor %}
-
 </div>
-
+{% else %}
+<b><em>Hey there! you have no conversations yet, all your conversations will display here...</em></b>
+{% endif %}
 {% endblock %}
