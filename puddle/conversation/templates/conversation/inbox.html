@@ -11,7 +11,7 @@
         <a href="{% url 'conversation:detail' conversation.id %}">
             <div class="p-6 flex bg-gray-100 rounded-xl">
                 <div class="pr-6">
-                    <img src="{{ conversation.item.image.url }}" class="w-20 rounded-xl">
+                    <img src="/media/{{ conversation.item.image.name }}" class="w-20 rounded-xl">
                 </div>
 
                 <div>
@@ -24,7 +24,9 @@
                 </div>
             </div>
         </a>
+        <hr class="border-2 border-black my-4">
     {% endfor %}
+
 </div>
 
 {% endblock %}
