@@ -6,7 +6,7 @@
 {% block content %}
 <div class="grid grid-cols-5 gap-6">
     <div class="col-span-3">
-        <img src="{{ item.image.url }}" class="rounded-t-xl">
+        <img src="{% url 'items:detail' item.pk %}|add:item.image.url" class="rounded-t-xl">
     </div>
 
     <div class="col-span-2 p-6 bg-gray-100 rounded-xl"> 
