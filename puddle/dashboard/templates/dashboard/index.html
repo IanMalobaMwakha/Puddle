@@ -25,7 +25,7 @@
 
         </div>
 {% else %}
-<b><em>Ooops! you have no items yet. To add an item, click <a href="{% url 'items:new' %}" "><u>Add New Item</u></a>. All your items will display here...</em></b>
+<em>Ooops! you have no items yet <b>{{ user.username }} </b>! To add an item, click <a href="{% url 'items:new' %}" "><u>Add New Item</u></a>. All your items will display here...</em>
 
 {% endif %}
     </div>  
