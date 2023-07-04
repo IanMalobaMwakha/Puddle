@@ -3,6 +3,54 @@
 {% block title %} Welcome {% endblock %}
 
 {% block content %}
+
+<!-- Advertisement div -->
+<!-- Advertisement div -->
+<div class="mb-6">
+    <h2 class="text-center mb-4">Advertisements</h2>
+    <div class="advertisement-container">
+        {% for item in items %}
+            <a href="#">
+                <img src="{{ item.image.url }}" class="advertisement-image" alt="Advertisement Image">
+            </a>
+        {% endfor %}
+    </div>
+</div>
+<!-- End of Advertisement div -->
+
+<style>
+    .advertisement-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px; /* Adjust the container height as needed */
+        animation: fade 6s infinite;
+    }
+
+    .advertisement-image {
+        display: none;
+        width: 200px; /* Adjust the width of the images as needed */
+        height: auto; /* Adjust the height of the images as needed */
+    }
+
+    @keyframes fade {
+        0%, 100% {
+            opacity: 0;
+        }
+        20%, 80% {
+            opacity: 1;
+        }
+    }
+</style>
+
+
+<br>
+<br>
+
+
+<!-- End of Advertisement div -->
+
+
     <div class="mt-6 px-4 py-8 bg-gray-300 rounded-xl">
         <h2 class="mb-12 text-2xl text-center">Newest Items</h2>
 
@@ -43,4 +91,7 @@
             {% endfor %}
         </div>
     </div>  
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
 {% endblock %}
