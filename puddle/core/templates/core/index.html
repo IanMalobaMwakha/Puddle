@@ -11,7 +11,9 @@
     <div class="advertisement-container">
         {% for item in items %}
             <a href="#">
-                <img src="{{ item.image.url }}" class="advertisement-image" alt="Advertisement Image">
+                {% if item.image %}
+                    <img src="{{ item.image.url }}" class="advertisement-image" alt="Advertisement Image">
+                {% endif %}
             </a>
         {% endfor %}
     </div>
@@ -59,7 +61,9 @@
                 <div>
                     <a href="{% url 'items:detail' item.id %}">
                         <div>
-                            <img src="{{ item.image.url }}" class="rounded-t-xl">
+                            {% if item.image %}
+                                <img src="{{ item.image.url }}" class="rounded-t-xl">
+                            {% endif %}
                         </div>
 
                         <div class="p-6 bg-white rounded-b-xl">
