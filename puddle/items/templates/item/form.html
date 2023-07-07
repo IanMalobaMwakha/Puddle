@@ -7,8 +7,11 @@
 
 <form method="post" action="." enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_media }}
-    {{ form.as_p }}
+    {{ form.media }}
+    <div class="space-y-4">
+        {{ form.as_p }}
+    </div>
+    
 
     {% if form.errors or form.non_field_errors %}
     <div class="mb-3 p-6 bg-red-100 rounded-xl">
