@@ -11,7 +11,7 @@
             <div class="p-6 flex bg-gray-100 rounded-xl">
                 <div>
                     <p class="mb-4"><strong>{{ message.created_by.username }}</strong> @ {{ message.created_at }}</p>
-                    <p>{{ message.content }}</p>
+                    <p>{{ message.content | safe }}</p>
                 </div>
             </div>
     {% endfor %}
