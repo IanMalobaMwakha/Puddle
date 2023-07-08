@@ -19,7 +19,7 @@
                 <div>
                     {% for member in conversation.members.all %}
                         {% if member != request.user %}
-                            <p class="mb-4"><strong>{{ member.username }}</strong> | {{ conversation.modified_at }} {% if conversation.member == request.user %} <em>(Sent)</em> {% else %} <em>(Received)</em> {% endif %}</p>
+                            <p class="mb-4"><strong>{{ member.username }}</strong> | {{ conversation.modified_at }} </p>
                             <p>{{ conversation.item.name }}</p>
                         {% endif %}
                     {% endfor %}
