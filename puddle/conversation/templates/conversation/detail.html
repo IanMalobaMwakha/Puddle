@@ -10,14 +10,16 @@
     {% for message in conversation.messages.all %}
             <div class="p-6 flex {% if message.created_by == request.user %} bg-blue-200 {% else %} bg-gray-100 {% endif %} rounded-xl">
                 <div>
-                    <p class="mb-4"><strong>{{ message.created_by.username }}</strong> @ {{ message.created_at }} {% if message.created_by == request.user %} <em>(Sent)</em> {% else %} <em>(Received)</em> {% endif %}</p>
+                    <p class="mb-4"><strong>{% if message.created_by == request.user %} ME ({{ message.created_by.username }}) {% else %} <em>{{ message.created_by.username }}</em> {% endif %}</strong> @ {{ message.created_at }} {% if message.created_by == request.user %} <em>(Sent)</em> {% else %} <em>(Received)</em> {% endif %}</p>
+                    <hr class="border border-black">
+                    <br>
                     <p>{{ message.content | safe }}</p>
                 </div>
             </div>
     {% endfor %}
 </div>
 
-<form method="post" action=".">
+<form method="post" action="." class="mt-6">
     {% csrf_token %}
 
     {{ form.as_p }}
