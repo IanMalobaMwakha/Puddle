@@ -37,4 +37,5 @@ def signup(request):
 
 @login_required
 def logout_view(request):
+    logout(request)
     return render(request, 'core/logout_success.html')

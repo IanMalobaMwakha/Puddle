@@ -1,0 +1,116 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Welcome {% endblock %}
+
+{% block content %}
+
+<!-- Advertisement div -->
+<div class="slideshow-container">
+    {% for item in items %}
+        <div class="mySlides fade">
+            <a href="{% url 'items:detail' item.id %}">
+                {% if item.image %}
+                    <img src="{{ item.image.url }}" class="advertisement-image" alt="Advertisement Image">
+                {% endif %}
+            </a>
+            <div class="text"><em>{{ item.name }}</em></div>
+        </div>
+    {% endfor %}
+</div>
+<!-- End of Advertisement div -->
+
+<div style="text-align:center">
+    {% for _ in items %}
+        <span class="dot"></span> 
+    {% endfor %}
+</div>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+
+        // Set display style for all slides to none
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+
+        // Set active class for all dots to an empty string
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+
+        // Display current slide
+        slides[slideIndex-1].style.display = "block";  
+
+        // Add active class to the corresponding dot
+        dots[slideIndex-1].className += " active";
+
+        // Change slide every 2 seconds
+        setTimeout(showSlides, 2000);
+    }
+</script>
+<!-- End of Advertisement div -->
+
+
+
+
+
+<!-- Beginning of Newest DIV -->
+
+
+    <div class="mt-6 px-4 py-8 bg-gray-300 rounded-xl">
+        <h2 class="mb-12 text-2xl text-center">Latest Items</h2>
+
+        <div class="grid grid-cols-3 gap-3">
+            {% for item in items %}
+                <div>
+                    <a href="{% url 'items:detail' item.id %}">
+                        <div>
+                            {% if item.image %}
+                                <img src="{{ item.image.url }}" class="rounded-t-xl">
+                            {% endif %}
+                        </div>
+
+                        <div class="p-6 bg-white rounded-b-xl">
+                            <h2 class="text-blue-600 text-1xl no-underline hover:underline hover:text-red-500">{{ item.name }}</h2>
+                            <p class="text-gray-500"><b>Price: ${{ item.price }}</b></p>
+                        </div>
+                    </a>
+
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <div class="mt-6 px-6 py-12 bg-gray-300 rounded-xl">
+        <h2 class="mb-12 text-2xl text-center">Categories</h2>
+
+        <div class="grid grid-cols-5 gap-3">
+            {% for category in categories %}
+                <div>
+                    <a href="#">
+                        <div class="p-6 bg-white rounded-b-xl">
+                            <h2 class="text-1xl">{{ category.name }}</h2>
+                            <p class="text-gray-500">{{ category.items.count }} items</p>
+                        </div>
+                    </a>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>  
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+{% endblock %}
