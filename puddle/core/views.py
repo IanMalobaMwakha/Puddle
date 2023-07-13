@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
 
+from django.contrib.auth.decorators import login_required
+
 from items.models import Cartegory, Item
 
 from .forms import SignupForm
+
+from django.contrib.auth import logout
 
 def index(request):
     items = Item.objects.filter(is_sold=False) [0:20]
@@ -31,3 +35,6 @@ def signup(request):
         'form': form
     })
 
+@login_required
+def logout_view(request):
+    return render(request, 'core/logout_success.html')
