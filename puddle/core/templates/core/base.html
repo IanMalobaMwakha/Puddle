@@ -36,10 +36,29 @@
 
         /* Slideshow container */
         .slideshow-container {
-    margin-left: -23px; /* Adjust the value as needed */
-    margin-right: -23px; /* Adjust the value as needed */
-    padding-left: 0;
-    padding-right: 0;
+            margin-left: -23px; /* Adjust the value as needed */
+            margin-right: -23px; /* Adjust the value as needed */
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 
@@ -130,14 +149,25 @@
         {% if request.user.is_authenticated %}
             <a href="{% url 'conversation:inbox' %}" class="px-6 py-3 text-lg font-semibold bg-teal-400 text-black rounded-xl hover:text-yellow-500 hover:bg-teal-700 transition-all duration-1000">Inbox</a>
             <a href="{% url 'dashboard:index' %}" class="px-6 py-3 text-lg font-semibold bg-gray-400 text-black rounded-xl hover:text-yellow-500 hover:bg-gray-700 transition-all duration-1000">Dashboard</a>
-            <table>
-                <tr>
-                    <td><img src="{{ MEDIA_URL }} media/icon/image_icon.jpg" alt="User Icon" class="w-8 h-8 rounded-full"></td>
-                </tr>
-                <tr>
-                    <td><span class="text-white text-sm">Hi, <b>{{ user.username }}</b></span></td>
-                </tr>
-            </table>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <table>
+                        <tr>
+                            <td><img src="{{ MEDIA_URL }} media/icon/image_icon.jpg" alt="User Icon" class="w-8 h-8 rounded-full"></td>
+                        </tr>
+                        <tr>
+                            <td><span class="text-white text-sm">Hi, <b>{{ user.username }}</b></span></td>
+                        </tr>
+                    </table>
+                </button>
+                <div class="dropdown-content">
+                <a href="#">My Account</a>
+                <br>
+                <a href="#">Logout</a>
+                <br>
+                <a href="#">Contact us</a>
+                </div>
+              </div>
             
             
 
