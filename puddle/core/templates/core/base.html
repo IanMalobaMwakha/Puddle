@@ -167,9 +167,9 @@ a:hover {
             <div class="dropdown">
                 <button class="dropbtn">
                     <table>
-                        <tr>
-                            <td><img src="{{ MEDIA_URL }} media/icon/image_icon.jpg" alt="User Icon" class="w-8 h-8 rounded-full"></td>
-                        </tr>
+                        <td class="flex justify-center items-center">
+                            <img src="{{ MEDIA_URL }} media/icon/image_icon.jpg" alt="User Icon" class="w-8 h-8 rounded-full">
+                        </td>
                         <tr>
                             <td><span class="text-white text-sm">Hi, <b>{{ user.username }}</b></span></td>
                         </tr>
@@ -198,13 +198,36 @@ a:hover {
 
     <!-- Mobile Menu -->
     <div class="hidden absolute top-16 right-0 bg-gray-800 w-48 py-3 rounded-lg shadow-lg lg:hidden z-10" id="mobileMenu">
-        <a href="{% url 'items:new' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Add New Item</a>
-        <a href="{% url 'items:items' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Search Items</a>
-
         {% if request.user.is_authenticated %}
+        <div class="dropdown flex flex-col items-center">
+            <button class="dropbtn">
+                <table>
+                    <td class="flex justify-center items-center">
+                        <img src="{{ MEDIA_URL }} media/icon/image_icon.jpg" alt="User Icon" class="w-8 h-8 rounded-full">
+                    </td>
+                    <tr>
+                        <td><span class="text-white text-sm">Hi, <b>{{ user.username }}</b></span></td>
+                    </tr>
+                </table>
+            </button>
+            <div class="dropdown-content">
+            <a href="#">My Account</a>
+            <br>
+            <hr>
+            <a href="{% url 'core:logout_view' %}">Logout</a>
+            <br>
+            <hr>
+            <a href="{% url 'core:contact' %}">Contact us</a>
+            <hr>
+            </div>
+        </div>
+            <a href="{% url 'items:new' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Add New Item</a>
+            <a href="{% url 'items:items' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Search Items</a>
             <a href="{% url 'conversation:inbox' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Inbox</a>
             <a href="{% url 'dashboard:index' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Dashboard</a>
         {% else %}
+            <a href="{% url 'items:new' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Add New Item</a>
+            <a href="{% url 'items:items' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Search Items</a>
             <a href="{% url 'core:signup' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Sign up</a>
             <a href="{% url 'core:login' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Log in</a>
         {% endif %}
