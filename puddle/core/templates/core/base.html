@@ -143,8 +143,8 @@ a:hover {
 </head>
 
 <body>
-<nav class="py-6 px-6 flex justify-between items-center border-b border-gray-400">
-    <a href="/" class="text-xl font-semibold">Puddle</a>
+<nav class="py-6 px-2 flex justify-between items-center border-b-2 border-gray-400">
+        <a href="/" class="text-xl font-semibold">Puddle</a>
 
     <!-- Mobile Menu Button -->
     <button class="lg:hidden px-4 py-2 border rounded text-white bg-gray-800 hover:bg-gray-700 focus:outline-none" id="mobileMenuButton">
@@ -167,6 +167,9 @@ a:hover {
             <div class="dropdown">
                 <button class="dropbtn">
                     <table>
+                        <tr>
+                            <td colspan="2" style="font-family: 'Lucida Handwriting', cursive; font-size: small; color: red;">My Profile</td>
+                        </tr>
                         <td class="flex justify-center items-center">
                             <img src="{{ MEDIA_URL }} media/icon/image_icon.jpg" alt="User Icon" class="w-8 h-8 rounded-full">
                         </td>
@@ -202,6 +205,9 @@ a:hover {
         <div class="dropdown flex flex-col items-center">
             <button class="dropbtn">
                 <table>
+                    <tr>
+                        <td colspan="2" style="font-family: 'Lucida Handwriting', cursive; font-size: small; color: red;">My Profile</td>
+                    </tr>
                     <td class="flex justify-center items-center">
                         <img src="{{ MEDIA_URL }} media/icon/image_icon.jpg" alt="User Icon" class="w-8 h-8 rounded-full">
                     </td>
@@ -221,17 +227,32 @@ a:hover {
             <hr>
             </div>
         </div>
+            <hr>
             <a href="{% url 'items:new' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Add New Item</a>
+            <hr>
             <a href="{% url 'items:items' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Search Items</a>
+            <hr>
             <a href="{% url 'conversation:inbox' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Inbox</a>
+            <hr>
             <a href="{% url 'dashboard:index' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Dashboard</a>
         {% else %}
             <a href="{% url 'items:new' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Add New Item</a>
+            <hr>
             <a href="{% url 'items:items' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Search Items</a>
+            <hr>
             <a href="{% url 'core:signup' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Sign up</a>
+            <hr>
             <a href="{% url 'core:login' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Log in</a>
         {% endif %}
     </div>
+
+<script>
+    function toggleDropdown() {
+        var dropdownContent = document.getElementById("dropdownContent");
+        dropdownContent.classList.toggle("show");
+    }
+</script>
+
 </nav>
 
 <main class="px-6 py-6">
