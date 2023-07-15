@@ -9,7 +9,9 @@
     <br>
     <br>
     <br>
+
     {% for item in items %}
+        {% if item.image %}
         <div class="mySlides fade">
             <a href="{% url 'items:detail' item.id %}">
                 {% if item.image %}
@@ -18,6 +20,8 @@
             </a>
             <div class="text"><em>{{ item.name }}</em></div>
         </div>
+        {% endif %}
+        
     {% endfor %}
 </div>
 <!-- End of Advertisement div -->
