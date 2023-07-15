@@ -3,53 +3,51 @@
 {% block title %} Search Items {% endblock %}
 
 {% block content %}
-    <div class="pb-6 grid grid-cols-4 gap-4 bg-gray-400 rounded-xl">
-        <div class="col-span-1">
-            <form method="get" action="{% url 'items:items' %}">
-                <input name="query" class="w-full py-4 px-6 rounded-xl" type="text" value="{{ query }}" placeholder="Find any item, bike, chair, cart...etc">
+    <div class="pb-6 bg-gray-400 rounded-xl">
+        <form method="get" action="{% url 'items:items' %}" class="px-6 py-6 flex gap-4">
+            <input name="query" class="flex-1 py-4 px-6 rounded-xl" type="text" value="{{ query }}" placeholder="Find any item, bike, chair, cart...etc">
+            <button class="py-4 px-8 text-lg bg-teal-500 text-white rounded-xl">Search</button>
+        </form>
 
-                <button class="mt-2 py-4 px-8 text-lg bg-teal-500 text-white rounded-xl">Search</button>
-            </form>
+        <hr class="my-6">
 
-            <hr class="my-6">
+        <div class="grid grid-cols-4 gap-4">
+            <div class="col-span-1">
+                <p class="font-semibold">Categories</p>
+                <ul>
+                    {% for category in categories %}
+                        <li class="py-2 px-2 rounded-xl hover:text-gray-100{% if category.id == category_id %} bg-gray-200 {% endif %}">
+                            <a href="{% url 'items:items' %}?query={{ query }}&category={{ category.id }}">{{ category.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
 
-            <p class="font-semibold">Categories</p>
-            <ul>
-                {% for cartegory in categories %}
-                    <li class="py-2 px-2 rounded-xl hover:text-gray-100{% if cartegory.id == cartegory_id %} bg-gray-200 {% endif %}">
-                        <a href="{% url 'items:items' %}?query={{ query }}&cartegory={{ cartegory.id }}">{{ cartegory.name }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
+                <hr class="my-6">
 
-            <hr class="my-6">
-
-            <p class="font-semibold">Clear Filters</p>
+                <p class="font-semibold">Clear Filters</p>
                 <ul>
                     <li><a href="{% url 'items:items' %}" class="mt-2 py-4 px-8 inline-block bg-yellow-500 text-lg rounded-xl text-white hover:bg-gray-700"> Clear </a></li>
                 </ul>
-        </div>
+            </div>
 
-        <div class="col-span-3">
-            <div class="grid grid-cols-3 gap-3">
-                {% for item in items %}
-                    <div>
-                        <a href="{% url 'items:detail' item.id %}">
-                            <div>
-                                <img src="/media/{{ item.image.name }}" class="rounded-t-xl">
-                            </div>
-    
-                            <div class="p-6 bg-white rounded-b-xl">
-                                <h2 class="text-blue-600 text-2xl no-underline hover:underline hover:text-red-500">{{ item.name }}</h2>
-                                <p class="text-gray-500">Price: ${{ item.price }}</p>
-                            </div>
-                        </a>
-    
-                    </div>
-                {% endfor %}
-    
+            <div class="col-span-3">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    {% for item in items %}
+                        <div>
+                            <a href="{% url 'items:detail' item.id %}">
+                                <div>
+                                    <img src="/media/{{ item.image.name }}" class="rounded-t-xl">
+                                </div>
+            
+                                <div class="p-6 bg-white rounded-b-xl">
+                                    <h2 class="text-blue-600 text-1xl no-underline hover:underline hover:text-red-500">{{ item.name }}</h2>
+                                    <p class="text-gray-500">Price: ${{ item.price }}</p>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-
     </div>
 {% endblock %}

@@ -1,32 +1,29 @@
 {% extends 'core/base.html' %}
 
-{% block title %} Dasboard {% endblock %}
+{% block title %} Dashboard {% endblock %}
 
 {% block content %}
     <div class="mt-6 px-6 py-12 bg-gray-300 rounded-xl">
         <h2 class="mb-12 text-2xl text-center">My Items</h2>
-{% if items %}
-        <div class="grid grid-cols-3 gap-3">
-            {% for item in items %}
-                <div>
-                    <a href="{% url 'items:detail' item.id %}">
-                        <div>
-                            <img src="/media/{{ item.image.name }}" class="rounded-t-xl">
-                        </div>
+        {% if items %}
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                {% for item in items %}
+                    <div>
+                        <a href="{% url 'items:detail' item.id %}">
+                            <div>
+                                <img src="/media/{{ item.image.name }}" class="rounded-t-xl">
+                            </div>
 
-                        <div class="p-6 bg-white rounded-b-xl">
-                            <h2 class="text-blue-600 text-2xl no-underline hover:underline hover:text-red-500">{{ item.name }}</h2>
-                            <p class="text-gray-500">Price: ${{ item.price }}</p>
-                        </div>
-                    </a>
-
-                </div>
-            {% endfor %}
-
-        </div>
-{% else %}
-<em>Ooops! you have no items yet <b>{{ user.username }} </b>! To add an item, click <a href="{% url 'items:new' %}" "><u>Add New Item</u></a>. All your items will display here...</em>
-
-{% endif %}
+                            <div class="p-6 bg-white rounded-b-xl">
+                                <h2 class="text-blue-600 text-1xl no-underline hover:underline hover:text-red-500">{{ item.name }}</h2>
+                                <p class="text-gray-500">Price: ${{ item.price }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <em>Ooops! You have no items yet <b>{{ user.username }}</b>! To add an item, click <a href="{% url 'items:new' %}"><u>Add New Item</u></a>. All your items will display here...</em>
+        {% endif %}
     </div>  
 {% endblock %}
