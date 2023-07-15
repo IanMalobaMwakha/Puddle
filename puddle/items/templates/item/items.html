@@ -40,6 +40,8 @@
                                         <div>
                                             <img src="/media/{{ item.image.name }}" class="rounded-t-xl">
                                         </div>
+                                    {% else %}
+                                        <i style="color: red; padding-top: 10%; padding-bottom: 10%; display: block; text-align: center;">NB: No image/invalid image was uploaded for this item..</i>
                                     {% endif %}
                                     <div class="p-6 bg-white rounded-b-xl">
                                         <h2 class="text-blue-600 text-1xl truncate no-underline hover:underline hover:text-red-500">{{ item.name }}</h2>
