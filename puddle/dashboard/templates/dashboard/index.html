@@ -11,7 +11,11 @@
                     <div>
                         <a href="{% url 'items:detail' item.id %}">
                             <div>
+                                {% if item.image.name %}
                                 <img src="/media/{{ item.image.name }}" class="rounded-t-xl">
+                                {% else %}
+                                <i style="color: red; display: block; text-align: center;">NB: You either uploaded invalid or no image at all for this item..</i>
+                                {% endif %}
                             </div>
 
                             <div class="p-6 bg-white rounded-b-xl">
