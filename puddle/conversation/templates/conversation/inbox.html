@@ -13,7 +13,12 @@
         <a href="{% url 'conversation:detail' conversation.id %}">
             <div class="p-6 flex bg-gray-100 rounded-xl">
                 <div class="pr-6">
+                    {% if conversation.item.image.name %}
                     <img src="/media/{{ conversation.item.image.name }}" class="w-20 rounded-xl">
+                    {% else %}
+                    <i style="color: red; display: block; text-align: center;">NB: No image..</i>
+                    {% endif %}
+
                 </div>
 
                 <div>
