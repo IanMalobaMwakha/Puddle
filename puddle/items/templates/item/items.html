@@ -16,7 +16,7 @@
                 <p class="font-semibold">Categories</p>
                 <ul>
                     {% for cartegory in categories %}
-                        <li class="py-2 px-2 rounded-xl hover:text-gray-100{% if cartegory.id == cartegory_id %} bg-gray-200 {% endif %}">
+                        <li class="py-2 px-2 truncate text-gray-600{% if cartegory.id == cartegory_id %} bg-gray-200 {% endif %}">
                             <a href="{% url 'items:items' %}?query={{ query }}&cartegory={{ cartegory.id }}">{{ cartegory.name }}</a>
                         </li>
                     {% endfor %}
@@ -40,7 +40,7 @@
                                 </div>
             
                                 <div class="p-6 bg-white rounded-b-xl">
-                                    <h2 class="text-blue-600 text-1xl no-underline hover:underline hover:text-red-500">{{ item.name }}</h2>
+                                    <h2 class="text-blue-600 text-1xl truncate no-underline hover:underline hover:text-red-500">{{ item.name }}</h2>
                                     <p class="text-gray-500">Price: ${{ item.price }}</p>
                                 </div>
                             </a>
