@@ -7,11 +7,13 @@
     <div class="col-span-1 md:col-span-3">
         {% if item.image %}
         <img src="/media/{{ item.image.name }}" class="rounded-t-xl w-full">
+        {% else %}
+        <i style="color: red; padding-top: 10%; display: block; text-align: center;">NB: No image/invalid image was uploaded for this item..</i>
         {% endif %}
     </div>
 
     <div class="col-span-1 md:col-span-2 p-6 bg-gray-100 rounded-xl"> 
-        <h1 class="mb-6 truncate text-3xl">{{ item.name }}</h1> 
+        <h1 class="mb-6 text-3xl break-words">{{ item.name }}</h1
         <p clas="text-gray-500"><strong>Price: </strong>${{ item.price }}</p>   
         <p clas="text-gray-500"><strong>Seller: </strong> {{ item.created_by.username }}</p> <br>
 
@@ -46,13 +48,16 @@
                         <div class="h-40">
                             {% if item.image %}
                                 <img src="/media/{{ item.image.name }}" class="rounded-t-xl h-full object-cover">
+                            {% else %}
+                                <i style="color: red;">No image was uploaded for this item..</i>
                             {% endif %}
                         </div>
 
                         <div class="p-6 bg-white rounded-b-xl">
-                            <h2 class="text-xs md:text-sm lg:text-1xl truncate no-underline hover:underline hover:text-red-500">{{ item.name }}</h2>
+                            <h2 class="text-xs md:text-sm truncate lg:text-1xl no-underline hover:underline hover:text-red-500">{{ item.name }}</h2>
                             <p class="text-xs md:text-sm text-gray-500">Price: ${{ item.price }}</p>
                         </div>
+                        
                     </a>
                 </div>
             {% endfor %}
