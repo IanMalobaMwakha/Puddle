@@ -316,6 +316,17 @@ a:hover {
 <main class="px-6 py-6">
     {% block content %}
     {% endblock %}
+<br>
+<br>
+<br>
+<br>
+<!-- back to top buttonprevious page button-->
+{% if not request.path == "/" and not request.path == "/index.html" %}
+    <button onclick="history.back()" class="text-sm py-1 px-2 bg-blue-500 text-white rounded">Previous Page</button>
+{% endif %}
+
+
+
 </main>
 
 <footer class="py-6 px-6 flex justify-between bg-gray-800">
