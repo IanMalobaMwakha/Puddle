@@ -6,6 +6,8 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <link rel="icon" type="image/png" href="media/icon/logo.png" sizes="32x32" style="border-radius:20px;">
+
     <title>{% block title %} {% endblock %} | Puddle Marketplace</title>
 
     <style>
@@ -181,11 +183,13 @@ a:hover {
 </head>
 
 <body>
-<nav class="py-2 px-2 flex justify-between items-center fixed top-0 left-0 right-0 z-10 bg-grey border-b-2 border-gray-400">
-    <a href="/" class="text-base md:text-xl lg:text-2xl font-semibold" style="font-family: 'Lucida Handwriting', cursive; color: red;">
-        Puddle Marketplace
-    </a>
-    
+    <nav class="py-2 px-2 flex justify-between items-center fixed top-0 left-0 right-0 z-10 bg-grey border-b-2 border-gray-400">
+        <a href="/" class="text-base md:text-xl lg:text-2xl font-semibold" style="background-image: url('media/icon/logo.png'); 
+        background-size: contain; background-repeat: no-repeat; padding-left: 70px; border-radius:7px;">
+            <span style="color: red; font-family: 'Lucida Handwriting', cursive;">Puddle Marketplace</span>
+            <br>
+            <span style="font-size: 13px; color: black;"><i>Find What You Need, Love What You Sell</i></span>
+        </a>    
     
     
     <!-- Mobile Menu Button -->
