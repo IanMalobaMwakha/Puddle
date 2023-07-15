@@ -19,11 +19,13 @@
                 <div>
                     {% for member in conversation.members.all %}
                         {% if member != request.user %}
-                            <p class="mb-4"><strong>{{ member.username }}</strong> | {{ conversation.modified_at }} </p>
-                            <p>{{ conversation.item.name }}</p>
+                            <p class="truncate mb-4"><strong>{{ member.username }}</strong> | {{ conversation.modified_at }}</p>
+                            <p class="truncate">{{ conversation.item.name }}</p>
                         {% endif %}
                     {% endfor %}
                 </div>
+                
+                
             </div>
         </a>
         <hr class="border-2 border-black my-4">
