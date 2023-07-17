@@ -184,8 +184,61 @@ a:hover {
 }
 
 
+/* Image full screen enlarging... atdetail page */
+
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.enlarge-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: white;
+  padding: 5px;
+  cursor: pointer;
+  display: none;
+}
+
+.image-container.enlarged {
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: RGBA(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.image-container.enlarged img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.image-container.enlarged .close-button {
+  display: block;
+}
 
     </style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
@@ -309,6 +362,11 @@ a:hover {
 
 </nav>
 
+
+<!-- jquery for the enlarger functionality -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <!-- back to top button-->
 
 <button onclick="topFunction()" id="myBtn" title="Go back to the top">Top</button>
@@ -384,6 +442,64 @@ a:hover {
       document.documentElement.scrollTop = 0;
     }
     </script>
+
+
+
+<!-- JavaScript code for the enlarger functionality -->
+
+
+<script>
+$('img.img-enlargable').each(function() {
+  var $image = $(this);
+
+  // Create the enlarge button
+  var $enlargeButton = $('<div>')
+    .addClass('enlarge-button')
+    .text('[ ]')
+    .click(function() {
+      enlargeImage($image);
+    });
+
+  // Find the close button within the image container
+  var $closeButton = $image.closest('.image-container').find('.close-button')
+    .click(function() {
+      reduceImage($image);
+    });
+
+  function enlargeImage($image) {
+    var src = $image.attr('src');
+    var $enlargedView = $('<div>')
+      .addClass('enlarged-view')
+      .css({
+        background: 'RGBA(0,0,0,.5) url(' + src + ') no-repeat center',
+        backgroundSize: 'contain',
+        width: '100%',
+        height: '100%',
+        position: 'fixed',
+        zIndex: '10000',
+        top: '0',
+        left: '0',
+        cursor: 'zoom-out'
+      })
+      .click(function() {
+        $(this).remove();
+      });
+    
+    $enlargedView.append($closeButton); // Append close button to the enlarged view
+    $('body').append($enlargedView);
+  }
+
+  function reduceImage($image) {
+    $image.closest('.enlarged-view').remove();
+    $image.closest('.image-container').find('.enlarge-button').appendTo($image.closest('.image-container'));
+  }
+
+  $enlargeButton.appendTo($image.closest('.image-container'));
+});
+
+
+
+</script>
 
 
 </body>

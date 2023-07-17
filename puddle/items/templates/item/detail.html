@@ -6,7 +6,12 @@
 <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
     <div class="col-span-1 md:col-span-3">
         {% if item.image %}
-        <img src="/media/{{ item.image.name }}" class="rounded-t-xl w-full">
+        <div class="image-container">
+            <div class="image-wrapper">
+              <img src="/media/{{ item.image.name }}" class="rounded-t-xl w-full img-enlargable">
+              <div class="close-button">X</div>
+            </div>
+        </div>
         {% else %}
         <i style="color: red; padding-top: 10%; display: block; text-align: center;">NB: No image/invalid image was uploaded for this item..</i>
         {% endif %}
