@@ -105,7 +105,7 @@
         {% for cartegory in categories %}
         <div class="p-1 bg-white rounded-lg">
             <a href="{% url 'items:items' %}?query={{ query }}&cartegory={{ cartegory.id }}" class="block h-full">
-                <div class="py-1 px-1 truncate text-gray-700{% if cartegory.id == cartegory_id %} bg-gray-200 {% endif %}">
+                <div class="py-1 px-1 truncate text-red-700{% if cartegory.id == cartegory_id %} bg-gray-200 {% endif %}">
                     {{ cartegory.name }}
                 </div> 
                 <p class="text-gray-500 text-xs">{{ cartegory.items.count }} items</p>
