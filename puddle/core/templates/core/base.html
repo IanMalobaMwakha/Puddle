@@ -6,7 +6,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="icon" type="image/png" href="media/icon/logo.png" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'%3E%3Cpath fill='red' d='M16.146 0v24l6.134-4.886V3.334zm-2.853 18.758l-4.939 2.157V2.086l4.939 1.462zm-11.572-.553l3.78-.999V5.188l-3.762-.606z'/%3E%3C/svg%3E">
 
     <title>{% block title %} {% endblock %} | Puddle Marketplace</title>
 
@@ -247,13 +247,19 @@ a:hover {
 </head>
 
 <body>
-    <nav class="py-2 px-2 flex justify-between items-center fixed top-0 left-0 right-0 z-10 bg-grey border-b-2 border-gray-400">
-        <a href="/" class="text-base md:text-xl lg:text-2xl font-semibold" style="background-image: url('media/icon/logo.png'); 
-        background-size: contain; background-repeat: no-repeat; padding-left: 70px; border-radius:7px;">
-            <span style="color: red; font-family: 'Lucida Handwriting', cursive;">Puddle Marketplace</span>
-            <br>
-            <span style="font-size: 13px; color: black;"><i>Find What You Need, Love What You Sell</i></span>
-        </a>    
+    <nav class="py-2 px-2 flex justify-between items-center fixed top-0 left-0 right-0 z-10" style="background-color: #6C58BF; border-bottom: 2px solid black;">
+        <a href="/" class="text-base md:text-xl lg:text-2xl font-semibold flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24">
+            <path fill="red" d="M16.146 0v24l6.134-4.886V3.334zm-2.853 18.758l-4.939 2.157V2.086l4.939 1.462zm-11.572-.553l3.78-.999V5.188l-3.762-.606z"/>
+          </svg>
+          <div class="ml-3">
+            <span style="color: red; font-family: 'Lucida Handwriting', cursive; display: block;">Puddle Marketplace</span>
+            <span class="text-white hover:text-black" style="font-size: 13px; color: whitesmoke;"> <i>Find What You Need, Love What You Sell</i></span>
+
+                        
+            </div>
+        </a>
+              
     
     
     <!-- Mobile Menu Button -->
@@ -266,26 +272,46 @@ a:hover {
     </button>
 
     <div class="hidden lg:flex space-x-4" style="margin-top: -6px;" id="mainMenu">
-        <a href="{% url 'items:new' %}" class="px-6 py-3 text-lg font-semibold bg-white text-black hover:text-gray-100 rounded-xl hover:bg-gray-700 transition-all duration-1000">Add New Item</a>
-        <a href="{% url 'items:items' %}" class="px-6 py-3 text-lg font-semibold bg-white text-black hover:text-gray-100 rounded-xl hover:bg-gray-700 transition-all duration-1000 flex items-center">
-            <img src="{{ MEDIA_URL }}media/icon/SearchIcon.png" alt="Search Icon" class="w-8 h-8 rounded-full mr-2">
-            <span>Search Items</span>
+        <a href="{% url 'items:new' %}" class="px-6 py-3 text-lg font-semibold bg-white text-black hover:text-gray-100 rounded-xl hover:bg-gray-700 transition-all duration-1000 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 20 20">
+                <path fill="red" d="M11 9h4v2h-4v4H9v-4H5V9h4V5h2v4zm-1 11a10 10 0 1 1 0-20a10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16a8 8 0 0 0 0 16z"/>
+            </svg>
+        <span>
+        Add New Item 
+        </span> 
         </a>
+
+        <a href="{% url 'items:items' %}" class="px-6 py-3 text-lg font-semibold bg-white text-black hover:text-gray-100 rounded-xl hover:bg-gray-700 transition-all duration-1000 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+              <path fill="red" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/>
+            </svg>                  
+            <span>Search Items</span>
+          </a>
+          
         {% if request.user.is_authenticated %}
-            <a href="{% url 'conversation:inbox' %}" class="px-6 py-3 text-lg font-semibold bg-teal-400 text-black rounded-xl hover:text-yellow-500 hover:bg-teal-700 transition-all duration-1000">Inbox</a>
-            <a href="{% url 'dashboard:index' %}" class="px-6 py-3 text-lg font-semibold bg-gray-400 text-black rounded-xl hover:text-yellow-500 hover:bg-gray-700 transition-all duration-1000">Dashboard</a>
+            <a href="{% url 'conversation:inbox' %}" class="px-6 py-3 text-lg font-semibold bg-teal-400 text-black rounded-xl hover:text-yellow-500 hover:bg-teal-700 transition-all duration-1000 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 16 16">
+                    <path fill="red" d="M10 6V0H6v6H4l4 5l4-5z"/><path fill="red" d="M13 1h-2v1h1.3l2.6 8H11v2H5v-2H1.1l2.6-8H5V1H3l-3 9v5h16v-5z"/>
+                </svg>
+                <span>Inbox</span>
+            </a>
+            <a href="{% url 'dashboard:index' %}" class="px-6 py-3 text-lg font-semibold bg-gray-400 text-black rounded-xl hover:text-yellow-500 hover:bg-gray-700 transition-all duration-1000 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24">
+                    <path fill="red" d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z"/>
+                </svg>
+                <span>Dashboard</span>
+            </a>
             <div class="dropdown">
-                <table style="border: 1px solid #000; border-radius: 5px; font-size: smaller; color: red; line-height: 1; border-collapse: separate;">
-                    <tr>
-                        <td style="font-family: 'Lucida Handwriting', cursive;" colspan="2">My Profile</td>
-                    </tr>
+                <table style=" font-size: smaller; color: red; line-height: 1; border-collapse: separate;">
                     <tr>
                         <td class="flex justify-center items-center">
-                            <img src="{{ MEDIA_URL }} media/icon/image_icon.jpg" alt="User Icon" class="w-6 h-5 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
+                                <path fill="white" fill-rule="evenodd" d="M12 4a8 8 0 0 0-6.96 11.947A4.99 4.99 0 0 1 9 14h6a4.99 4.99 0 0 1 3.96 1.947A8 8 0 0 0 12 4Zm7.943 14.076A9.959 9.959 0 0 0 22 12c0-5.523-4.477-10-10-10S2 6.477 2 12a9.958 9.958 0 0 0 2.057 6.076l-.005.018l.355.413A9.98 9.98 0 0 0 12 22a9.947 9.947 0 0 0 5.675-1.765a10.055 10.055 0 0 0 1.918-1.728l.355-.413l-.005-.018ZM12 6a3 3 0 1 0 0 6a3 3 0 0 0 0-6Z" clip-rule="evenodd"/>
+                            </svg>                      
                         </td>
                     </tr>
                     <tr>
-                        <td><span class="text-black truncate text-xs">Hi, <b>{{ user.username }}</b></span></td>
+                        <td><span class="text-white truncate text-xs">Hi, <b>{{ user.username }}</b></span></td>
                     </tr>
                 </table>
                 
