@@ -12,7 +12,7 @@
         <div class="mySlides fade">
             <a href="{% url 'items:detail' item.id %}">
                 {% if item.image %}
-                    <img src="{{ item.image.url }}" class="advertisement-image" alt="Advertisement Image">
+                    <img src="{{ item.image.url }}" class="advertisement-image" title="{{ item.name }}" alt="Advertisement Image">
                 {% endif %}
             </a>
             <div class="text truncate"><em>{{ item.name }}</em></div>
