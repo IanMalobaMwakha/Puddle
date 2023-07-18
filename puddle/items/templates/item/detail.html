@@ -35,7 +35,7 @@
 
         {% if request.user == item.created_by %}
         <div class="'mt-6 p-6 bg-white rounded-xl">
-            <p>This is your item!</p>
+            <p style="font-weight: bold; color: red;"><I>THIS IS YOUR ITEM!</I></p>
 
             <a href="{% url 'items:edit' item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-green-500 text-white rounded-xl">Edit</a>
             <a href="{% url 'items:delete' item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-red-500 text-white rounded-xl" onclick="return confirm('Are you sure you want to delete this item ({{ item.name }})?') && alert('{{ item.name }} is successfully deleted!');">Delete</a>
