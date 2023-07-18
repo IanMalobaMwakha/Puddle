@@ -9,7 +9,7 @@
         <div class="image-container">
             <div class="image-wrapper">
               <img src="/media/{{ item.image.name }}" class="rounded-t-xl w-full img-enlargable">
-              <div class="close-button">X</div>
+              <div class="close-button" title="Enlarge Image">X</div>
             </div>
         </div>
         {% else %}
@@ -64,7 +64,7 @@
 
                         <div class="p-6 bg-white rounded-b-xl">
                             <h2 class="text-xs md:text-sm truncate lg:text-1xl no-underline hover:underline hover:text-red-500">{{ item.name }}</h2>
-                            <p class="text-xs md:text-sm text-gray-500">Price: ${{ item.price }}</p>
+                            <p class="text-xs md:text-sm text-gray-500 truncate">Price: ${{ item.price }}</p>
                         </div>
                         
                     </a>
