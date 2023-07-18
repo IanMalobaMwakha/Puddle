@@ -88,6 +88,7 @@
 
 
 
+
 /* USER ICON HOVER FEATUTES */
         .dropdown {
             position: relative;
@@ -328,15 +329,17 @@ a:hover {
                 </table>
             </button>
             <div class="dropdown-content">
-            <a href="#">My Account</a>
-            <br>
-            <hr>
-            <a href="{% url 'core:logout_view' %}">Logout</a>
-            <br>
-            <hr>
-            <a href="{% url 'core:contact' %}">Contact us</a>
-            <hr>
+                <a href="#">My Account</a>
+                <br>
+                <hr>
+                <a href="{% url 'core:logout_view' %}">Logout</a>
+                <br>
+                <hr>
+                <a href="{% url 'core:contact' %}">Contact us</a>
+                <hr>
             </div>
+              
+                       
         </div>
             <hr>
             <a href="{% url 'items:new' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Add New Item</a>
@@ -500,7 +503,6 @@ $('img.img-enlargable').each(function() {
 
   $enlargeButton.appendTo($image.closest('.image-container'));
 });
-
 
 
 </script>
