@@ -32,25 +32,31 @@
 
             <div class="col-span-3">
                 {% if items %}
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                        {% for item in items %}
-                            <div>
-                                <a href="{% url 'items:detail' item.id %}">
-                                    {% if item.image.name %}
-                                        <div>
-                                            <img src="/media/{{ item.image.name }}" class="rounded-t-xl">
-                                        </div>
-                                    {% else %}
-                                        <i style="color: red; padding-top: 10%; padding-bottom: 10%; display: block; text-align: center;">NB: No image/invalid image was uploaded for this item..</i>
-                                    {% endif %}
-                                    <div class="p-6 bg-white rounded-b-xl">
-                                        <h2 class="text-blue-600 text-1xl truncate no-underline hover:underline hover:text-red-500">{{ item.name }}</h2>
-                                        <p class="text-gray-500 truncate">Price: ${{ item.price }}</p>
-                                    </div>
-                                </a>
-                            </div>
-                        {% endfor %}
-                    </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    {% for item in items %}
+                      <div class="flex flex-col h-full">
+                        <a href="{% url 'items:detail' item.id %}">
+                          <div class="flex-shrink-0">
+                            {% if item.image.name %}
+                              <div style="height: 150px;">
+                                <img src="/media/{{ item.image.name }}" class="rounded-t-xl w-full h-full object-cover">
+                              </div>
+                            {% else %}
+                              <div style="height: 150px; display: flex; align-items: center; justify-content: center;">
+                                <i style="color: red;">NB: No image/invalid image was uploaded for this item..</i>
+                              </div>
+                            {% endif %}
+                          </div>
+                  
+                          <div class="p-6 bg-white rounded-b-xl flex-grow">
+                            <h2 class="text-blue-600 text-1xl truncate no-underline hover:underline hover:text-red-500">{{ item.name }}</h2>
+                            <p class="text-gray-500 truncate">Price: ${{ item.price }}</p>
+                          </div>
+                        </a>
+                      </div>
+                    {% endfor %}
+                  </div>
+                  
                 {% else %}
                 <div class="flex justify-center">
                     <div class="w-2/3 md:w-1/2 bg-gray-200 rounded-lg p-6">
