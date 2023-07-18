@@ -311,7 +311,19 @@ a:hover {
                         </td>
                     </tr>
                     <tr>
-                        <td><span class="text-white truncate text-xs">Hi, <b>{{ user.username }}</b></span></td>
+                        <td>
+                            <span class="text-white truncate text-xs">
+                              Hi, <b><span id="username">{{ user.username }}</span></b>
+                            </span>
+                        </td>
+                          
+                          <script>
+                            var usernameElement = document.getElementById('username');
+                            var username = usernameElement.innerText;
+                            if (username.length > 8) {
+                              usernameElement.innerText = username.substring(0, 8) + '...';
+                            }
+                        </script>                           
                     </tr>
                 </table>
                 
@@ -352,7 +364,19 @@ a:hover {
                         </svg>                    
                     </td>
                     <tr>
-                        <td><span class="text-white truncate text-xs">Hi, <b>{{ user.username }}</b></span></td>
+                        <td>
+                            <span class="text-white truncate text-xs">
+                              Hi, <b><span id="username">{{ user.username }}</span></b>
+                            </span>
+                        </td>
+                          
+                          <script>
+                            var usernameElement = document.getElementById('username');
+                            var username = usernameElement.innerText;
+                            if (username.length > 8) {
+                              usernameElement.innerText = username.substring(0, 8) + '...';
+                            }
+                        </script>                           
                     </tr>
                 </table>
             </button>
