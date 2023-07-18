@@ -6,26 +6,31 @@
     <div class="mt-6 px-6 py-12 bg-gray-300 rounded-xl">
         <h2 class="mb-12 text-2xl text-center">Dashboard: My Items</h2>
         {% if items %}
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
-                {% for item in items %}
-                    <div>
-                        <a href="{% url 'items:detail' item.id %}">
-                            <div>
-                                {% if item.image.name %}
-                                <img src="/media/{{ item.image.name }}" class="rounded-t-xl">
-                                {% else %}
-                                <i style="color: red; display: block; text-align: center;">NB: You either uploaded invalid or no image at all for this item..</i>
-                                {% endif %}
-                            </div>
-
-                            <div class="p-6 bg-white rounded-b-xl">
-                                <h2 class="text-blue-600 text-1xl truncate hover:underline hover:text-red-500">{{ item.name }}</h2>
-                                <p class="text-gray-500 truncate">Price: ${{ item.price }}</p>
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+            {% for item in items %}
+              <div class="flex flex-col h-full">
+                <a href="{% url 'items:detail' item.id %}">
+                  <div class="flex-shrink-0">
+                    {% if item.image.name %}
+                      <div style="height: 150px;">
+                        <img src="/media/{{ item.image.name }}" class="rounded-t-xl w-full h-full object-cover">
+                      </div>
+                    {% else %}
+                      <div style="height: 150px; display: flex; align-items: center; justify-content: center;">
+                        <i style="color: red;">NB: You either uploaded an invalid or no image at all for this item..</i>
+                      </div>
+                    {% endif %}
+                  </div>
+          
+                  <div class="p-6 bg-white rounded-b-xl flex-grow">
+                    <h2 class="text-blue-600 text-1xl truncate hover:underline hover:text-red-500">{{ item.name }}</h2>
+                    <p class="text-gray-500 truncate">Price: ${{ item.price }}</p>
+                  </div>
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+          
         {% else %}
             <em>Ooops! You have no items yet <b>{{ user.username }}</b>! To add an item, click <a href="{% url 'items:new' %}"><u>Add New Item</u></a>. All your items will display here...</em>
         {% endif %}
