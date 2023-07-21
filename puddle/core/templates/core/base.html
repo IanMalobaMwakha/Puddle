@@ -441,31 +441,77 @@ a:hover {
                        
         </div>
             <hr>
-            <a href="{% url 'items:new' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Add New Item</a>
+            <a href="{% url 'items:new' %}" class="block px-4 py-2 text-white hover:bg-gray-700 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 20 20" class="mr-2">
+                <path fill="red" d="M11 9h4v2h-4v4H9v-4H5V9h4V5h2v4zm-1 11a10 10 0 1 1 0-20a10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16a8 8 0 0 0 0 16z"/>
+              </svg>
+              <span>Add New Item</span>
+            </a> 
+
             <hr>
-            <a href="{% url 'items:items' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Search Items</a>
+            <a href="{% url 'items:items' %}" class="block px-4 py-2 text-white hover:bg-gray-700 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                <path fill="red" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/>
+              </svg>                  
+              <span>Search Items</span>
+            </a>       
             <hr>
-            <a href="{% url 'conversation:inbox' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Inbox</a>
+            <a href="{% url 'conversation:inbox' %}" class="block px-4 py-2 text-white hover:bg-gray-700 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 16 16">
+                <path fill="red" d="M10 6V0H6v6H4l4 5l4-5z"/><path fill="red" d="M13 1h-2v1h1.3l2.6 8H11v2H5v-2H1.1l2.6-8H5V1H3l-3 9v5h16v-5z"/>
+              </svg>
+            <span>Inbox</span>
+            </a>
             <hr>
-            <a href="{% url 'dashboard:index' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Dashboard</a>
+            <a href="{% url 'dashboard:index' %}" class="block px-4 py-2 text-white hover:bg-gray-700 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24">
+                <path fill="red" d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z"/>
+            </svg>
+            <span>Dashboard</span>
+            </a>
         {% else %}
             <a href="{% url 'items:new' %}" class="block px-4 py-2 text-white hover:bg-gray-700 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 20 20" class="mr-2">
                 <path fill="red" d="M11 9h4v2h-4v4H9v-4H5V9h4V5h2v4zm-1 11a10 10 0 1 1 0-20a10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16a8 8 0 0 0 0 16z"/>
               </svg>
               <span>Add New Item</span>
-            </a>        
+            </a> 
+
             <hr>
-            <a href="{% url 'items:items' %}" class="block px-4 py-2 text-white hover:bg-gray-700">
+            <a href="{% url 'items:items' %}" class="block px-4 py-2 text-white hover:bg-gray-700 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
                 <path fill="red" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/>
               </svg>                  
               <span>Search Items</span>
             </a>
             <hr>
-            <a href="{% url 'core:signup' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Sign up</a>
+            <a href="{% url 'core:signup' %}" class="block px-4 py-2 text-white hover:bg-gray-700 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="mr-2">
+                <g fill="none" stroke="red" stroke-linecap="round" stroke-width="2">
+                  <path stroke-dasharray="20" stroke-dashoffset="20" d="M3 21V20C3 17.7909 4.79086 16 7 16H11C13.2091 16 15 17.7909 15 20V21">
+                    <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="20;0"/>
+                  </path>
+                  <path stroke-dasharray="20" stroke-dashoffset="20" d="M9 13C7.34315 13 6 11.6569 6 10C6 8.34315 7.34315 7 9 7C10.6569 7 12 8.34315 12 10C12 11.6569 10.6569 13 9 13Z">
+                    <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.4s" values="20;0"/>
+                  </path>
+                  <path stroke-dasharray="8" stroke-dashoffset="8" d="M15 6H21">
+                    <animate fill="freeze" attributeName="stroke-dashoffset" begin="1s" dur="0.2s" values="8;0"/>
+                  </path>
+                  <path stroke-dasharray="8" stroke-dashoffset="8" d="M18 3V9">
+                    <animate fill="freeze" attributeName="stroke-dashoffset" begin="1.2s" dur="0.2s" values="8;0"/>
+                  </path>
+                </g>
+              </svg>
+              <span>Sign up</span>
+            </a>
             <hr>
-            <a href="{% url 'core:login' %}" class="block px-4 py-2 text-white hover:bg-gray-700">Log in</a>
+
+            <a href="{% url 'core:login' %}" class="block px-4 py-2 text-white hover:bg-gray-700 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="mr-2">
+                <path fill="none" stroke="red" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H9m6-9l-4-4m4 4l-4 4m4-4H5"/>
+              </svg>
+              <span>Log in</span>            
+            </a>
         {% endif %}
     </div>
 
@@ -615,7 +661,6 @@ $('img.img-enlargable').each(function() {
 
   $enlargeButton.appendTo($image.closest('.image-container'));
 });
-
 
 </script>
 
