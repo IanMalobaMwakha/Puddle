@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+    <div style="padding: 12px; margin: 5px;">
+        <h1 style="font-size: 24px;">ABOUT: PUDDLE MARKETPLACE</h1>
+        <br>
+        <p>
+            Welcome to Puddle Marketplace, your premier destination for buying and selling second-hand and used goods. 🔄 
+            We are passionate about connecting conscious consumers and enthusiastic sellers, fostering a community that values sustainability and the beauty of preloved items. 🛍️
+        </p>
+        <br>
+        <br>
+        <h2 style="font-size: 20px;"><u>Our Mission</u></h2>
+        <p>
+            At Puddle Marketplace, our mission is to provide a platform that encourages sustainable shopping practices, reduces waste, and supports the idea that every item deserves a second chance. 
+            We believe in preserving memories and stories through preloved items while promoting an eco-friendly lifestyle. Together, we can make a positive impact on the environment and our communities. 💚
+        </p>
+        <br>
+        <br>
+        <h2 style="font-size: 20px;"><u>Meet the Founder and Developer - Ian MALOBA</u></h2>
+        <p>
+            Hi there! I'm <a href="https://ianmaloba.com" target="_blank" class="name-link"><i>IAN MALOBA</i></a>, the founder and Developer of Puddle Marketplace. 
+            I am a Software Developer and a student. Here is <a href="https://ianmaloba.com" target="_blank" class="name-link"><i>My Portfolio</i></a>
+            <br>
+            🙋‍♂️ As a passionate advocate for sustainable living and a lover of vintage treasures, I envisioned creating a space where people can easily connect to buy and sell second-hand items.
+            Puddle Marketplace is a result of my belief in the power of secondhand shopping to make the world a better place. I'm excited to see our community grow and contribute to a more conscious, eco-friendly lifestyle.
+        </p>
+        <br>
+        <br>
+        <h2 style="font-size: 20px;"><u>Join Us in the Journey</u></h2>
+        <p>
+            Whether you're a seasoned thrifter or just starting your sustainable shopping journey, we welcome you to be part of the Puddle Marketplace community. 💬
+            Together, let's embrace the joy of thrifting, support local sellers, and find unique treasures that carry stories from the past to the present. 🌟
+            Join us today and make your impact in shaping a more sustainable future!
+        </p>
+
+        <p style="text-align: center; margin-top: 40px;">
+            <a href="{% url 'core:contact' %}" style="color: red; text-decoration: underline;">Contact Us</a>
+        </p>
+    </div>
+{% endblock %}
