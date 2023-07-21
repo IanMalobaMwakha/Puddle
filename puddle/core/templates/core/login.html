@@ -2,9 +2,10 @@
 
 {% block title %}Log in{% endblock %}
 
-{%block content %}
-<div class="w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-3xl">
-    <a href="/" class="text-base md:text-xl lg:text-2xl font-semibold flex items-center">
+
+{% block content %}
+<div class="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 my-6 mx-auto p-6 bg-gray-100 rounded-3xl">
+    <a href="/" class="text-base md:text-xl lg:text-2xl font-semibold flex items-center justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24">
           <path fill="red" d="M16.146 0v24l6.134-4.886V3.334zm-2.853 18.758l-4.939 2.157V2.086l4.939 1.462zm-11.572-.553l3.78-.999V5.188l-3.762-.606z"/>
         </svg>
@@ -15,7 +16,7 @@
     </a> 
     <br>
     <br>  
-    <h1 class="mb-6 text-3xl">Log in</h1>
+    <h1 class="mb-6 text-3xl text-center">Log in</h1>
 
     <form method="post" action=".">
         {% csrf_token %}
@@ -42,12 +43,12 @@
             </div>
         {% endif %}
 
-        <button class="py4 px-8 text-lg bg-teal-400 hover:bg-teal-700 rounded-xl text-white">Submit</button>
+        <button class="py4 px-8 text-lg bg-teal-400 hover:bg-teal-700 rounded-xl text-white">Log in</button>
         <br>
         <br>
         <br>
         <br>
-        <p style="color:blue"><i>FORGOT PASSWORD?</i>  <a href="#"><button class="py4 px-8 text-lg bg-teal-400 hover:bg-teal-700 rounded-xl text-white">#Password Recovery</button></a></p> 
+        <p style="color:blue"><i>FORGOT PASSWORD?</i>  <a href="#"><button class="py4 px-8 text-lg bg-teal-400 hover:bg-teal-700 rounded-xl text-white">#Password Recovery#</button></a></p> 
         <br>
         <p style="color:blue"><i>DON'T HAVE AN ACCOUNT?</i>  <a href="{% url 'core:signup' %}"><button class="py4 px-8 text-lg bg-teal-400 hover:bg-teal-700 rounded-xl text-white">Sign up</button></a></p> 
 
@@ -55,4 +56,3 @@
 
 </div>
 {% endblock %}
-
