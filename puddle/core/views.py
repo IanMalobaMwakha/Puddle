@@ -26,6 +26,12 @@ def about(request):
 def privacy_policy(request):
     return render(request, 'core/privacy_policy.html')
 
+def terms_of_use(request):
+    return render(request, 'core/terms_of_use.html')
+
+def faq(request):
+    return render(request, 'core:faq.html')
+
 def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)

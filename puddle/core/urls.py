@@ -11,6 +11,8 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
     path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
+    path('terms_of_use/', views.terms_of_use, name='terms_of_use'),
+    path('faq/', views.faq, name='faq'),
     path('signup/', views.signup, name='signup'),
     path('logout/', views.logout_view, name='logout_view'),
     path('login/', auth_views.LoginView.as_view(template_name='core/login.html', authentication_form = LoginForm), name='login'),

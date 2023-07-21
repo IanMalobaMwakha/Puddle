@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block content %}
+    <div style="padding: 40px;">
+        <h1 style="font-size: 24px;">Frequently Asked Questions</h1>
+         <br>
+        <h2 style="font-size: 20px;">1. How do I create an account on Puddle Marketplace?</h2>
+        <p>
+            Creating an account on Puddle Marketplace is simple! Click on the "Sign Up" button on the top right corner of the page, then provide your email address and create a password. Once you've completed the sign-up process, you can start exploring and using our platform.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;">2. How do I list an item for sale?</h2>
+        <p>
+            To list an item for sale, log in to your Puddle Marketplace account and click on the "Add New Item" button. Fill in the required details, such as the item's description, price, and photos. After submitting the listing, it will be visible to potential buyers on our platform.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;">3. How can I contact a seller?</h2>
+        <p>
+            If you're interested in an item listed for sale, you can contact the seller directly through our messaging system. Click on the item, then the  "Contact Seller" button on the item's page, and you can send a message to discuss the details of the transaction.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;">4. How can I search for specific items?</h2>
+        <p>
+            You can use the search bar on the top of the page to find specific items on Puddle Marketplace. Enter keywords related to the item you're looking for, and our platform will display relevant listings for you to explore.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;">5. How do I edit my profile information?</h2>
+        <p>
+            To edit your profile information, log in to your account and click on the "Profile" tab. Here, you can update your name, contact details, and profile picture. Don't forget to save your changes!
+        </p>
+        <br>
+        <h2 style="font-size: 20px;">6. What payment methods are accepted on Puddle Marketplace?</h2>
+        <p>
+            Currently, Puddle Marketplace accepts payments through major credit/debit cards. We are continuously working to expand our payment options to provide more convenience for our users.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;">7. Is it safe to buy and sell on Puddle Marketplace?</h2>
+        <p>
+            Yes, we prioritize the safety and security of our users. We implement measures to protect your personal information and financial transactions. However, we advise users to be cautious and follow our guidelines for secure buying and selling.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;">8. What if I have an issue with a transaction?</h2>
+        <p>
+            If you encounter any issues with a transaction, such as a problem with an item or a seller, you can contact our customer support team at <a href="mailto:support@puddlemarketplace.com" style="color: red;">support@puddlemarketplace.com</a>. We'll be happy to assist you in resolving any concerns.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;">9. How do I delete my account?</h2>
+        <p>
+            If you wish to delete your Puddle Marketplace account, you can do so by visiting the "Account Settings" section. Click on the "Delete Account" button and follow the instructions to permanently remove your account.
+        </p>
+        <br>
+        <p style="text-align: center; margin-top: 40px;">
+            If you have any other questions or concerns, please <a href="{% url 'core:contact' %}" style="color: red; text-decoration: underline;">contact us</a>.
+        </p>
+    </div>
+{% endblock %}
