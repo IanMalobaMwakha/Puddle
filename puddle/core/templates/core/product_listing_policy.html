@@ -1,0 +1,72 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Product Listing Policy{% endblock %}
+
+{% block content %}
+    <div style="padding: 40px;">
+        <h1 style="font-size: 24px;">PRODUCT LISTING POLICY</h1>
+        <br>
+        <p>
+            Puddle Marketplace is committed to providing a safe and enjoyable environment for all our users. To ensure a positive experience for everyone, we have established the following Product Listing Policy. By using our platform to list items for sale, you agree to comply with these guidelines.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;"><u>Prohibited Items</u></h2>
+        <p>
+            The following items are strictly prohibited from being listed on Puddle Marketplace:
+        </p>
+        <ol>
+            <li>1. Illegal or stolen items</li>
+            <li>2. Counterfeit or replica products</li>
+            <li>3. Weapons or firearms</li>
+            <li>4. Drugs or drug paraphernalia</li>
+            <li>5. Adult content or services</li>
+            <li>6. Hazardous or dangerous materials</li>
+            <li>7. Any item that promotes hate speech, discrimination, or violence</li>
+        </ol>
+        <br>
+        <p>
+            We reserve the right to remove any listing that violates these guidelines and take appropriate action against the user responsible.
+
+            Additionally, users are responsible for complying with all applicable laws and regulations when listing items on our platform.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;"><u>Accurate and Honest Descriptions</u></h2>
+        <p>
+            When listing items for sale, users must provide accurate and truthful information about the product. Misleading or deceptive descriptions are not allowed and may result in the removal of the listing.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;"><u>Original Content</u></h2>
+        <p>
+            Users must upload original photos and content for their listings. Using copyrighted or stock images without proper authorization is not permitted.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;"><u>Respectful Communication</u></h2>
+        <p>
+            Puddle Marketplace fosters a respectful and friendly community. Users must engage in polite and respectful communication with other members of the platform. Harassment, spamming, or abusive behavior will not be tolerated.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;"><u>Prohibited Actions</u></h2>
+        <p>
+            The following actions are not allowed on Puddle Marketplace:
+        </p>
+        <ol>
+            <li>1. Manipulating prices or artificially inflating the value of an item</li>
+            <li>2. Interfering with other users' listings</li>
+            <li>3. Creating duplicate or misleading listings</li>
+            <li>4. Engaging in fraudulent or deceptive practices</li>
+        </ol>
+        <br>
+        <p>
+            Users found engaging in these activities will face account suspension or termination.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;"><u>Reporting Violations</u></h2>
+        <p>
+            If you come across a listing that violates our Product Listing Policy or have any concerns about a particular item, please report it to our customer support team immediately. Your cooperation helps maintain a safe and enjoyable marketplace for all users.
+        </p>
+        <br>
+        <p style="text-align: center; margin-top: 40px;">
+            If you have any questions or need further clarification on our Product Listing Policy, please <a href="{% url 'core:contact' %}" style="color: red; text-decoration: underline;">contact us</a>.
+        </p>
+    </div>
+{% endblock %}

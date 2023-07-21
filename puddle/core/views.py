@@ -30,7 +30,10 @@ def terms_of_use(request):
     return render(request, 'core/terms_of_use.html')
 
 def faq(request):
-    return render(request, 'core:faq.html')
+    return render(request, 'core/faq.html')
+
+def product_listing_policy(request):
+    return render(request, 'core/product_listing_policy.html')
 
 def signup(request):
     if request.method == 'POST':
