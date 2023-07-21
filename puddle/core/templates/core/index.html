@@ -101,7 +101,7 @@
                 {% if item.image %}
                   <img src="{{ item.image.url }}" class="rounded-t-xl" style="width: 100%; height: 100%; object-fit: cover;" title="{{ item.name }}">
                 {% else %}
-                  <i style="color: red; padding-top: 10%; padding-bottom: 10%; display: block; text-align: center;">NB: No image/invalid image was uploaded for this item..</i>
+                  <i style="color: red; padding-top: 10%; padding-bottom: 10%; display: block; text-align: center;"  title="(No image) {{ item.name }}">NB: No image/invalid image was uploaded for this item..</i>
                 {% endif %}
               </div>
               <hr style="border: none; border-top: 1px solid blueviolet;">
@@ -112,12 +112,7 @@
             </a>
           </div>
         {% endfor %}
-      </div>
-      
-      
-      
-      
-      
+      </div>    
       
 </div>
 
@@ -138,10 +133,6 @@
         {% endfor %}
     </div>
 </div>
-
-
-
-
 
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
