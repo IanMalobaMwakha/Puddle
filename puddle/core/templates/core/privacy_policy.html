@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Privacy Policy{% endblock %}
+
+{% block content %}
+    <div style="padding: 40px;">
+        <h1 style="font-size: 24px;">Privacy Policy</h1>
+        <br>
+        <p>
+            At Puddle Marketplace, we are committed to protecting the privacy and security of our users' personal information. This Privacy Policy explains how we collect, use, and disclose information when you use our website and services.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;"><u>Information We Collect</u></h2>
+        <p>
+            When you sign up for an account or use our services, we may collect certain personal information, including your name, email address, and contact details. We also collect data related to your activities on the platform, such as items you list for sale or purchase, messages you send to other users, and interactions with our website.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;"><u>How We Use Your Information</u></h2>
+        <p>
+            We use the information we collect to provide and improve our services, process transactions, communicate with users, and personalize your experience on Puddle Marketplace. We may also use your information for research, analytics, and to comply with legal obligations.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;"><u>Sharing Your Information</u></h2>
+        <p>
+            We may share your personal information with third-party service providers who assist us in operating our website and providing our services. We do not sell or rent your personal information to third parties for marketing purposes. However, please note that information you publicly share on our platform, such as your username and profile information, may be visible to other users.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;"><u>Your Choices</u></h2>
+        <p>
+            You have the right to review, update, and delete your account information at any time. You can also manage your communication preferences and opt-out of certain emails. Please note that deleting your account may not remove all data from our servers, as some information may be retained for legal and administrative purposes.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;"><u>Security</u></h2>
+        <p>
+            We take the security of your personal information seriously and implement measures to protect it from unauthorized access and use. However, no method of data transmission over the internet or electronic storage is completely secure, so we cannot guarantee its absolute security.
+        </p>
+        <br>
+        <h2 style="font-size: 20px;"><u>Updates to this Privacy Policy</u></h2>
+        <p>
+            We may update this Privacy Policy from time to time to reflect changes in our practices or for legal reasons. We encourage you to review this page periodically to stay informed about how we handle your information.
+        </p>
+        <br>
+        <p style="text-align: center; margin-top: 40px;">
+            If you have any questions or concerns about our Privacy Policy, please <a href="{% url 'core:contact' %}" style="color: red; text-decoration: underline;">contact us</a>.
+        </p>
+    </div>
+{% endblock %}
