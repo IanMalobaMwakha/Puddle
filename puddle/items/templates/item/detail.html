@@ -19,12 +19,19 @@
 
     <div class="col-span-1 md:col-span-2 p-6 bg-gray-100 rounded-xl"> 
         <h1 class="mb-6 text-3xl break-words">{{ item.name }}</h1
-        <p class="text-gray-500"> 
+        
+            <p class="text-gray-500"> 
             <strong>Price: </strong>
-            ${{ item.price }}</p>   
-        <p clas="text-gray-500">
+            ${{ item.price }}
+        </p>   
+        <p class="text-gray-500">
             <strong>Seller: </strong> 
-            {{ item.created_by.username }}</p> <br>
+            <a href="{% url 'core:users-profile' %}" style="color: blue;">
+                <u>{{ item.created_by.username }}</u>
+            </a>
+        </p>
+        
+        <br>
 
         {% if item.description %}
             <p class="text-gray-700">
