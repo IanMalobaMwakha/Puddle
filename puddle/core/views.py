@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 
 from items.models import Cartegory, Item
 
+from .models import Profile
+
 from .forms import SignupForm
 
 from django.contrib.auth import logout
@@ -58,4 +60,12 @@ def logout_view(request):
 
 @login_required
 def profile(request):
-    return render(request, 'core/profile.html')
+    avatar = Profile.objects.get()
+    location = Profile.objects.get()
+    bio = Profile.objects.get()
+
+    return render(request, 'core/profile.html'), {
+        'avatar': avatar,
+        'location': location,
+        'bio': bio,
+    }
