@@ -5,13 +5,31 @@
 {%block content %}
 
 <div class="mt-6 px-4 py-8 bg-gray-300 rounded-xl">
-    <h2 class="mb-12 text-2xl text-center" style="text-transform:uppercase;">{{ user.username }}'S PROFILE PAGE</h2>  
+    <h2 class="mb-12 text-2xl text-center" style="text-transform:uppercase;">{{ profile.user.username }}'S PROFILE PAGE</h2>
+    <h1>User Profile</h1>
+    {% if profile %}
+        <p><strong>Username:</strong> {{ profile.user.username }}</p>
+        <p><strong>Email:</strong> {{ profile.user.email }}</p>
+        {% if profile.avatar %}
+            <img src="{{ profile.avatar.url }}" alt="Avatar" style="height: 250px; width: 250px; border-radius: 50%;">
+        {% else %}
+            <p>No avatar available</p>
+        {% endif %}
+        {% if profile.location %}
+            <p><strong>Location:</strong> {{ profile.location }}</p>
+        {% endif %}
+        {% if profile.bio %}
+            <p><strong>Bio:</strong> {{ profile.bio }}</p>
+        {% endif %}
+    {% else %}
+        <p>No profile found for the user.</p>
+    {% endif %} 
 </div>
 
 
 
 <div class="mt-6 px-6 py-12 bg-gray-300 rounded-xl">
-    <h2 class="mb-12 text-2xl text-center">Below are {{ user.username }}'s items</h2>
+    <h2 class="mb-12 text-2xl text-center">Below are {{ profile.user.username }}'s items</h2>
 </div>  
 {% endblock %}
 

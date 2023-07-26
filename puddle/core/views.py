@@ -60,12 +60,16 @@ def logout_view(request):
 
 @login_required
 def profile(request):
-    avatar = Profile.objects.get()
-    location = Profile.objects.get()
-    bio = Profile.objects.get()
+    user = Profile.objects.all()
+    avatar = Profile.objects.all()
+    location = Profile.objects.all()
+    bio = Profile.objects.all()
+    profile, created = Profile.objects.get_or_create(user=request.user)
 
-    return render(request, 'core/profile.html'), {
+    return render(request, 'core/profile.html', {
+        'profile': profile,
+        'user': user,
         'avatar': avatar,
         'location': location,
         'bio': bio,
-    }
+    })

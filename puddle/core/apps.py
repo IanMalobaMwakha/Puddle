@@ -6,7 +6,7 @@ class CoreConfig(AppConfig):
 
 class UserConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'users'
+    name = 'user'
 
     def ready(self):
-        import users.signal
+        import user.signal
