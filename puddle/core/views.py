@@ -6,7 +6,7 @@ from items.models import Cartegory, Item
 
 from .models import Profile
 
-from .forms import SignupForm
+from .forms import SignupForm, ProfileEditForm
 
 from django.contrib.auth import logout
 
@@ -64,7 +64,17 @@ def profile(request):
     avatar = Profile.objects.all()
     location = Profile.objects.all()
     bio = Profile.objects.all()
-    profile, created = Profile.objects.get_or_create(user=request.user)
+
+    profile = request.user.profile
+
+    if request.method == 'POST':
+        form = ProfileEditForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('core:profile')
+    else:
+        form = ProfileEditForm(instance=profile)
+
 
     return render(request, 'core/profile.html', {
         'profile': profile,
@@ -72,4 +82,5 @@ def profile(request):
         'avatar': avatar,
         'location': location,
         'bio': bio,
+        'form': form,
     })
