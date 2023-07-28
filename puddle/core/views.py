@@ -59,8 +59,8 @@ def logout_view(request):
 
 
 @login_required
-def profile(request):
-    user = Profile.objects.all()
+def profile(request, profile_id):
+    user = Profile.objects.all(pk=profile_id)
     avatar = Profile.objects.all()
     location = Profile.objects.all()
     bio = Profile.objects.all()
