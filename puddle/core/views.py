@@ -73,13 +73,7 @@ def profile(request, pk):
         # Handle the case when the profile with the given pk doesn't exist
         return redirect(request, 'core/profile_not_found.html')
 
-    if request.method == 'POST':
-        form = ProfileEditForm(request.POST, request.FILES, instance=profile)
-        if form.is_valid():
-            form.save()
-            return redirect('core:profile')
-    else:
-        form = ProfileEditForm(instance=profile)
+
 
 
     return render(request, 'core/profile.html', {
@@ -89,5 +83,4 @@ def profile(request, pk):
         'avatar': avatar,
         'location': location,
         'bio': bio,
-        'form': form,
     })
