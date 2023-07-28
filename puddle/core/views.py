@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from django.contrib.auth.decorators import login_required
 
@@ -31,6 +31,9 @@ def privacy_policy(request):
 def terms_of_use(request):
     return render(request, 'core/terms_of_use.html')
 
+def profile_not_found(request):
+    return render(request, 'profile_not_found.html')
+
 def faq(request):
     return render(request, 'core/faq.html')
 
@@ -59,13 +62,16 @@ def logout_view(request):
 
 
 @login_required
-def profile(request, profile_id):
-    user = Profile.objects.all(pk=profile_id)
-    avatar = Profile.objects.all()
-    location = Profile.objects.all()
-    bio = Profile.objects.all()
-
-    profile = request.user.profile
+def profile(request, pk):
+    try:
+        user = Profile.objects.all()
+        avatar = Profile.objects.all()
+        location = Profile.objects.all()
+        bio = Profile.objects.all()
+        profile = get_object_or_404(Profile, pk=pk)
+    except Profile.DoesNotExist:
+        # Handle the case when the profile with the given pk doesn't exist
+        return redirect(request, 'core/profile_not_found.html')
 
     if request.method == 'POST':
         form = ProfileEditForm(request.POST, request.FILES, instance=profile)
@@ -79,6 +85,7 @@ def profile(request, profile_id):
     return render(request, 'core/profile.html', {
         'profile': profile,
         'user': user,
+        'pk': pk,
         'avatar': avatar,
         'location': location,
         'bio': bio,
