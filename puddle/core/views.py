@@ -61,7 +61,6 @@ def logout_view(request):
     return render(request, 'core/logout_success.html')
 
 
-@login_required
 def profile(request, pk):
     try:
         user = Profile.objects.all()
