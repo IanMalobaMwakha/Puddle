@@ -13,13 +13,12 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-# Signal to automatically create a profile for each user
 @receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
+def create_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=instance)
+        profile = Profile.objects.create(user=instance)
+        print(f"Profile created for user: {instance.username}")
 
-# Signal to save the profile when the user is saved
 @receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
+def save_profile(sender, instance, **kwargs):
     instance.profile.save()
