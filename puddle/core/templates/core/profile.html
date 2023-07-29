@@ -5,8 +5,12 @@
 {%block content %}
 
 <div class="mt-6 px-4 py-8 bg-gray-300 rounded-xl">
-    <h2 class="mb-12 text-2xl text-center" style="text-transform:uppercase;">{{ profile.user.username }}'S PROFILE PAGE</h2>
-    <h1>User Profile</h1>
+    {% if profile.user == request.user %}
+        <h2 class="mb-12 text-2xl text-center" style="text-transform:uppercase;">MY PROFILE PAGE</h2>
+    {% else %}
+        <h2 class="mb-12 text-2xl text-center" style="text-transform:uppercase;">{{ profile.user.username }}'S PROFILE PAGE</h2>
+    {% endif %}
+    
     {% if profile %}
     <table>
         <tr>
@@ -33,7 +37,8 @@
         <tr>
             <td>
                {% if profile.bio %}
-                    <p><strong>BIO:</strong> {{ profile.bio }}</p>
+                    <p><strong><u>BIO:</u></strong></p>
+                    <p>{{ profile.bio }}</p>
                 {% else %}
                     <p><strong>BIO:</strong><i>Not updated yet..</i></p>
                 {% endif %} 
