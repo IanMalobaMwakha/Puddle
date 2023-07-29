@@ -6,7 +6,7 @@ from items.models import Cartegory, Item
 
 from .models import Profile
 
-from .forms import SignupForm, ProfileEditForm
+from .forms import SignupForm
 
 from django.contrib.auth import logout
 
