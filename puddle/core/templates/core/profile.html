@@ -21,24 +21,6 @@
         {% if profile.bio %}
             <p><strong>Bio:</strong> {{ profile.bio }}</p>
         {% endif %}
-
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" style="color: red;">Update Profile</button>
-        </form>
-        {% if form.errors %}
-            <div>
-                <strong>Errors:</strong>
-                <ul>
-                    {% for field in form %}
-                        {% for error in field.errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    {% endfor %}
-                </ul>
-            </div>
-        {% endif %}
     {% else %}
         <p>No profile found for the user.</p>
     {% endif %}
