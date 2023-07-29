@@ -24,11 +24,18 @@
             <strong>Price: </strong>
             ${{ item.price }}
             </p>   
-        <p class="text-gray-500">
+        <p class="text-gray-800">
             <strong>Seller: </strong> 
             <a href="{% url 'core:profile' pk=item.created_by.profile.pk %}" style="color: blue;">
-                <u>{{ item.created_by.username }}</u>
+                <u><b>{{ item.created_by.username }}</b></u>
             </a>
+        </p>
+        <p>
+            {% if profile.location %}
+                <p><strong>Seller's Location:</strong> {{ profile.location }}</p>
+            {% else %}
+                <p><strong>Seller's Location:</strong><i> Not updated yet..</i></p>
+            {% endif %}
         </p>
         
         <br>
@@ -48,7 +55,9 @@
             <a href="{% url 'items:delete' item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-red-500 text-white rounded-xl" onclick="return confirm('Are you sure you want to delete this item ({{ item.name }})?') && alert('{{ item.name }} is successfully deleted!');">Delete</a>
         </div>
         {% else %}
-        <a href="{% url 'conversation:new' item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-400 rouned-xl text-white hover:bg-teal-700">Contact Seller</a>
+        <a href="{% url 'conversation:new' item.id %}" class="inline-block mt-6 mx-2 px-6 py-3 text-lg font-semibold bg-teal-600 rounded-xl text-white hover:bg-teal-700">Contact Seller</a>
+        <a href="{% url 'core:profile' pk=item.created_by.profile.pk %}" class="inline-block mt-6 mx-2 px-6 py-3 text-lg font-semibold bg-teal-600 rounded-xl text-white hover:bg-teal-700">Seller's Profile</a>
+
         {% endif %}
     </div>
 </div>
