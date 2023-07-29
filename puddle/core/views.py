@@ -68,6 +68,7 @@ def profile(request, pk):
         location = Profile.objects.all()
         bio = Profile.objects.all()
         profile = get_object_or_404(Profile, pk=pk)
+        items = Item.objects.filter(created_by=profile.user)
     except Profile.DoesNotExist:
         # Handle the case when the profile with the given pk doesn't exist
         return redirect(request, 'core/profile_not_found.html')
@@ -82,4 +83,5 @@ def profile(request, pk):
         'avatar': avatar,
         'location': location,
         'bio': bio,
+        'items': items,
     })
