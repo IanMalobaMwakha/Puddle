@@ -16,7 +16,7 @@
       <div class="col-span-1 md:col-span-1">
           <div class="col-span-1 md:col-span-1 flex justify-center items-center">
             {% if profile.avatar %}
-                <img src="{{ profile.avatar.url }}" alt="Avatar" style="height: 160px; width: 160px; border-radius: 50%;" class="rounded-t-xl w-full img-enlargable">
+                <img src="{{ profile.avatar.url }}" alt="Avatar" style="height: 190px; width: 190px; border-radius: 50%;" class="rounded-t-xl w-full img-enlargable">
             {% else %}
                 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 48 48">
                     <g fill="maroon">
@@ -29,15 +29,16 @@
       </div>
   
       <div class="col-span-1 md:col-span-2 p-6 bg-gray-100 rounded-xl">
-          <div class="col-span-1 md:col-span-2 p-6 bg-gray-100 rounded-xl text-left text-lg">
-            <p><strong>USERNAME:</strong> {{ profile.user.username }}</p>
-                <p><strong>EMAIL ADDRESS:</strong> {{ profile.user.email }}</p>
-                {% if profile.location %}
-                    <p><strong>LOCATION:</strong> {{ profile.location }}</p>
-                {% else %}
-                    <p><strong>LOCATION:</strong><i>Not updated yet..</i></p>
-                {% endif %}
-          </div>
+        <div class="col-span-1 md:col-span-2 p-6 bg-gray-100 rounded-xl text-left text-lg">
+          <p><strong>USERNAME:</strong> <span style="color: blue;">{{ profile.user.username }}</span></p>
+          <p><strong>EMAIL ADDRESS:</strong> <span style="color: blue;">{{ profile.user.email }}</span></p>
+          {% if profile.location %}
+              <p><strong>LOCATION:</strong> <span style="color: blue;">{{ profile.location }}</span></p>
+          {% else %}
+              <p><strong>LOCATION:</strong><i> Not updated yet..</i></p>
+          {% endif %}
+      </div>
+      
       </div>
   </div>
   
