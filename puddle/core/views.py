@@ -89,8 +89,17 @@ def profile(request, pk):
 
 @login_required
 def editprofile(request):
-    form = EditProfile()
+    if request.method == 'POST':
+        form = EditProfile(request.POST, request.FILES)
 
-    return render(request, 'core/edit_profile.html', {
-        'form': form,
-    })
+        if form.is_valid():
+            form.save()
+
+        return redirect('core:profile', pk=request.user.profile.pk)
+    
+    else:
+        form = EditProfile()
+        return render(request, 'core/edit_profile.html', {
+                'form': form,
+            })
+    
