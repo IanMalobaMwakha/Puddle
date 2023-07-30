@@ -11,11 +11,13 @@ def items(request):
     categories = Cartegory.objects.all()
     items = Item.objects.filter(is_sold=False)
 
+
     if query:
         items = items.filter(Q(name__icontains=query) | Q(description__icontains=query))
     
     if cartegory_id:
         items = items.filter(cartegory_id=cartegory_id)
+
 
     return render(request, 'item/items.html', {
         'items': items,
