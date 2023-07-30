@@ -89,16 +89,20 @@ def profile(request, pk):
 
 @login_required
 def editprofile(request):
+    user_profile = request.user.profile  # Rename the variable to avoid conflict
+
     if request.method == 'POST':
-        form = EditProfile(request.POST, request.FILES)
-
+        form = EditProfile(request.POST, request.FILES, instance=user_profile)
         if form.is_valid():
-            form.save()
+            # Save the form with the associated user
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
 
-        return redirect('core:profile', pk=request.user.profile.pk)
-    
+            return redirect('core:profile', pk=request.user.profile.pk)
     else:
-        form = EditProfile()
+        form = EditProfile(instance=user_profile)
+
         return render(request, 'core/edit_profile.html', {
                 'form': form,
             })
