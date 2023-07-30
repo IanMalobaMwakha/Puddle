@@ -6,40 +6,42 @@
 
 <div class="mt-6 px-4 py-6 bg-gray-300 rounded-lg mx-auto text-center" style="max-width: 900px;">
     {% if profile.user == request.user %}
-        <h2 class="mb-12 text-2xl text-center" style="text-transform:uppercase;">MY PROFILE PAGE</h2>
+        <h2 class="mb-12 text-2xl text-center" style="text-transform:uppercase;"><u><b>MY PROFILE PAGE</b></u></h2>
     {% else %}
-        <h2 class="mb-12 text-2xl text-center" style="text-transform:uppercase;">{{ profile.user.username }}'S PROFILE PAGE</h2>
+        <h2 class="mb-12 text-2xl text-center" style="text-transform:uppercase;"><b><u>{{ profile.user.username }}'S PROFILE PAGE</u></b></h2>
     {% endif %}
     
     {% if profile %}
-    
-    <div class="col-span-1 md:col-span-3">
-        <div class="col-md-6 order-md-1 order-2">
+    <div class="grid md:grid-cols-3">
+      <div class="col-span-1 md:col-span-1">
+          <div class="col-span-1 md:col-span-1 flex justify-center items-center">
             {% if profile.avatar %}
-                <img src="{{ profile.avatar.url }}" alt="Avatar" style="height: 250px; width: 250px; border-radius: 50%;" class="rounded-t-xl w-full img-enlargable">
+                <img src="{{ profile.avatar.url }}" alt="Avatar" style="height: 160px; width: 160px; border-radius: 50%;" class="rounded-t-xl w-full img-enlargable">
             {% else %}
-                <svg xmlns="http://www.w3.org/2000/svg" width="170" height="140" viewBox="0 0 48 48">
+                <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 48 48">
                     <g fill="maroon">
                         <path d="M32 20a8 8 0 1 1-16 0a8 8 0 0 1 16 0Z"/>
                         <path fill-rule="evenodd" d="M23.184 43.984C12.517 43.556 4 34.772 4 24C4 12.954 12.954 4 24 4s20 8.954 20 20s-8.954 20-20 20a21.253 21.253 0 0 1-.274 0c-.181 0-.362-.006-.542-.016ZM11.166 36.62a3.028 3.028 0 0 1 2.523-4.005c7.796-.863 12.874-.785 20.632.018a2.99 2.99 0 0 1 2.498 4.002A17.942 17.942 0 0 0 42 24c0-9.941-8.059-18-18-18S6 14.059 6 24c0 4.916 1.971 9.373 5.166 12.621Z" clip-rule="evenodd"/>
                     </g>
                 </svg>
             {% endif %}
-        </div>
-    </div>
-
-    <div class="col-span-1 md:col-span-2 p-6 bg-gray-100 rounded-xl"> 
-        <p><strong>USERNAME:</strong> {{ profile.user.username }}</p>
+          </div>
+      </div>
+  
+      <div class="col-span-1 md:col-span-2 p-6 bg-gray-100 rounded-xl">
+          <div class="col-span-1 md:col-span-2 p-6 bg-gray-100 rounded-xl text-left text-lg">
+            <p><strong>USERNAME:</strong> {{ profile.user.username }}</p>
                 <p><strong>EMAIL ADDRESS:</strong> {{ profile.user.email }}</p>
                 {% if profile.location %}
                     <p><strong>LOCATION:</strong> {{ profile.location }}</p>
                 {% else %}
                     <p><strong>LOCATION:</strong><i>Not updated yet..</i></p>
                 {% endif %}
-    </div>
+          </div>
+      </div>
+  </div>
+  
 
-
-    
     <br>
     <table>
         <tr>
@@ -47,9 +49,10 @@
                {% if profile.bio %}
                     <p><strong><u>BIO:</u></strong></p>
                     <p>{{ profile.bio }}</p>
-                {% else %}
-                    <p><strong>BIO:</strong><i>Not updated yet..</i></p>
-                {% endif %} 
+              {% else %}
+                    <p><strong><u>BIO:</u></strong></p>
+                    <p><i>Not updated yet..</i></p>
+              {% endif %} 
             </td>
         </tr>
         
