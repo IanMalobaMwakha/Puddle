@@ -2,3 +2,14 @@
 
 {% block title %} Edit Profile {% endblock %}
 
+{% block content %}
+    <form method="post" action="." enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="space-y-4">
+            {{ form.as_p }}
+        </div>
+
+        <button class="py-4 px-6 bg-gray-500">Submit</button>
+    </form>
+{% endblock %}
