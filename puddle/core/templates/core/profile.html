@@ -56,8 +56,16 @@
               {% endif %} 
             </td>
         </tr>
-        
+        <br>
+        <br>
     </table>
+
+    {% if profile.user == request.user %}
+      <a href="{% url 'core:editprofile' %}" class="px-6 py-3 text-lg font-semibold bg-gray-400 text-black rounded-xl hover:text-yellow-500 hover:bg-gray-700 transition-all duration-1000 flex items-center">
+        Edit Profile
+      </a>
+    {% endif %}
+
 
     {% else %}
         <p><b>No profile found for the user.</b></p>

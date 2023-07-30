@@ -41,3 +41,16 @@ class EditProfile(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('avatar', 'location', 'bio')
+
+    avatar = forms.CharField(widget=forms.FileInput(attrs={
+        'placeholder': 'Image Avatar',
+        'class': 'w-full py-4 px-6 rounded-xl border'
+    }))
+    location = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': 'Enter your location',
+        'class': 'w-full py-4 px-6 rounded-xl'
+    }))
+    bio = forms.CharField(widget=forms.Textarea(attrs={
+        'placeholder': 'Bio/Your About',
+        'class': 'w-full py-4 px-6 rounded-xl'
+    }))

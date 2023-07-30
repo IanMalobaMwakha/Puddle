@@ -16,6 +16,7 @@ urlpatterns = [
     path('faq/', views.faq, name='faq'),
     path('product_listing_policy/', views.product_listing_policy, name='product_listing_policy'),
     path('signup/', views.signup, name='signup'),
+    path('editprofile/', views.editprofile, name='editprofile'),
     path('logout/', views.logout_view, name='logout_view'),
     path('profile/<int:pk>/', views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='core/login.html', authentication_form = LoginForm), name='login'),

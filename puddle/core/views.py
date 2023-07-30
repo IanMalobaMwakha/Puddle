@@ -88,7 +88,7 @@ def profile(request, pk):
 
 
 @login_required
-def editprofile(request, pk):
+def editprofile(request):
     form = EditProfile()
 
     return render(request, 'core/edit_profile.html', {
