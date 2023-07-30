@@ -6,7 +6,7 @@ from items.models import Cartegory, Item
 
 from .models import Profile
 
-from .forms import SignupForm
+from .forms import SignupForm, EditProfile
 
 from django.contrib.auth import logout
 
@@ -84,4 +84,13 @@ def profile(request, pk):
         'location': location,
         'bio': bio,
         'items': items,
+    })
+
+
+@login_required
+def editprofile(request, pk):
+    form = EditProfile()
+
+    return render(request, 'core/edit_profile.html', {
+        'form': form,
     })
