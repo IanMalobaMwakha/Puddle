@@ -43,7 +43,7 @@ class EditProfile(forms.ModelForm):
         fields = ('avatar', 'location', 'bio')
 
     avatar = forms.FileField(widget=forms.FileInput(attrs={
-        'placeholder': 'Image Avatar',
+        'placeholder': 'Image Avatar/Profile Picture',
         'class': 'w-full py-4 px-6 rounded-xl border'
     }))
     location = forms.CharField(widget=forms.TextInput(attrs={
@@ -51,6 +51,6 @@ class EditProfile(forms.ModelForm):
         'class': 'w-full py-4 px-6 rounded-xl'
     }))
     bio = forms.CharField(widget=forms.Textarea(attrs={
-        'placeholder': 'Bio/Your About',
+        'placeholder': 'Enter your Bio/About',
         'class': 'w-full py-4 px-6 rounded-xl'
     }))
