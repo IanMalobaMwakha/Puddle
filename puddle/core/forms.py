@@ -42,7 +42,7 @@ class EditProfile(forms.ModelForm):
         model = Profile
         fields = ('avatar', 'location', 'bio')
 
-    avatar = forms.CharField(widget=forms.FileInput(attrs={
+    avatar = forms.FileField(widget=forms.FileInput(attrs={
         'placeholder': 'Image Avatar',
         'class': 'w-full py-4 px-6 rounded-xl border'
     }))
