@@ -95,9 +95,9 @@ def editprofile(request):
         form = EditProfile(request.POST, request.FILES, instance=user_profile)
         if form.is_valid():
             # Save the form with the associated user
-            profile = form.save(commit=False)
+            myprofile = form.save(commit=False)
             profile.user = request.user
-            profile.save()
+            myprofile.save()
 
             return redirect('core:profile', pk=request.user.profile.pk)
     else:
