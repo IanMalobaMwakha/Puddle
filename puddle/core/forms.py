@@ -42,15 +42,15 @@ class EditProfile(forms.ModelForm):
         model = Profile
         fields = ('avatar', 'location', 'bio')
 
-    avatar = forms.FileField(widget=forms.FileInput(attrs={
+    avatar = forms.FileField(required=False, widget=forms.FileInput(attrs={
         'placeholder': 'Image Avatar/Profile Picture',
         'class': 'w-full py-4 px-6 rounded-xl border'
     }))
-    location = forms.CharField(widget=forms.TextInput(attrs={
+    location = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'placeholder': 'Enter your location',
         'class': 'w-full py-4 px-6 rounded-xl'
     }))
-    bio = forms.CharField(widget=forms.Textarea(attrs={
+    bio = forms.CharField(required=False, widget=forms.Textarea(attrs={
         'placeholder': 'Enter your Bio/About',
         'class': 'w-full py-4 px-6 rounded-xl'
     }))
