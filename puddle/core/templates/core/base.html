@@ -273,6 +273,10 @@ a:hover {
 </head>
 
 <body>
+  <div id="loading-page">
+    {% include 'core/loading_page.html' %}
+</div>
+  
     <nav class="py-2 px-2 flex justify-between items-center fixed top-0 left-0 right-0 z-10" style="background-color: #6C58BF; border-bottom: 2px solid black;">
         <a href="/" class="text-base md:text-xl lg:text-2xl font-semibold flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24">
@@ -749,6 +753,17 @@ $('img.img-enlargable').each(function() {
 
 </script>
 
+
+<script>
+  // Hide the loading page and show the main content when the website has finished loading
+  window.addEventListener('load', function () {
+      const loadingPage = document.getElementById('loading-page');
+      const mainContent = document.getElementById('main-content');
+
+      loadingPage.style.display = 'none';
+      mainContent.style.display = 'block';
+  });
+</script>
 
 </body>
 </html>
