@@ -4,10 +4,12 @@
 
 {% block content %}
     <div class="pb-6 bg-gray-400 rounded-xl">
-        <form method="get" action="{% url 'items:items' %}" class="px-6 py-6 flex gap-4">
+      <div class="w-full">
+        <form method="get" action="{% url 'items:items' %}" class="px-6 py-6 flex flex-col space-y-4 md:flex-row md:items-center md:space-x-4 md:space-y-0">
             <input name="query" class="flex-1 py-4 px-6 rounded-xl" type="text" value="{{ query }}" placeholder="Find any item, bike, chair, cart...etc">
             <button class="py-4 px-8 text-lg bg-teal-500 text-white rounded-xl">Search</button>
         </form>
+    </div>
 
         <hr class="my-6">
 
