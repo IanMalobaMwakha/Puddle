@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
+
+from django.core.exceptions import ObjectDoesNotExist
 
 from django.contrib.auth.decorators import login_required
 
@@ -106,4 +108,13 @@ def editprofile(request):
         return render(request, 'core/edit_profile.html', {
                 'form': form,
             })
-    
+
+
+@login_required
+def delete(request, pk):
+    try:
+        myprofile = get_object_or_404(Profile, pk=request.user.profile.pk)
+        myprofile.delete()
+        return redirect('core:logout_view')
+    except ObjectDoesNotExist:
+        return HttpResponse("Sorry, it seems that the Profile does not exist!!.", status=404)
