@@ -10,7 +10,7 @@ from .models import Profile
 
 from .forms import SignupForm, EditProfile
 
-from django.contrib.auth import logout
+from django.contrib.auth import logout, authenticate, login
 
 def index(request):
     items = Item.objects.filter(is_sold=False) [0:20]
@@ -71,7 +71,7 @@ def profile(request, pk):
         bio = Profile.objects.all()
         profile = get_object_or_404(Profile, pk=pk)
         items = Item.objects.filter(created_by=profile.user)
-    except Profile.DoesNotExist:
+    except ObjectDoesNotExist:
         # Handle the case when the profile with the given pk doesn't exist
         return redirect(request, 'core/profile_not_found.html')
 
@@ -118,3 +118,4 @@ def delete(request, pk):
         return redirect('core:logout_view')
     except ObjectDoesNotExist:
         return HttpResponse("Sorry, it seems that the Profile does not exist!!.", status=404)
+
