@@ -28,14 +28,16 @@
 
     {% for item in items %}
         {% if item.image %}
-        <div class="mySlides fade">
-            <a href="{% url 'items:detail' item.id %}">
-                {% if item.image %}
-                    <img src="{{ item.image.url }}" class="advertisement-image" title="{{ item.name }}" alt="Advertisement Image">
-                {% endif %}
-            </a>
-            <div class="text truncate"><em>{{ item.name }}</em></div>
-        </div>
+            <div class="mySlides fade">
+                <a href="{% url 'items:detail' item.id %}">
+                    {% if item.image %}
+                        <img src="{{ item.image.url }}" class="advertisement-image" title="{{ item.name }}" alt="Advertisement Image">
+                    {% endif %}
+                </a>
+                <div class="text truncate" style="color: yellow; font-size: small;">
+                    <em><span style="background-color: black; display: inline-block;">{{ item.name }}</span></em>
+                </div>
+            </div>
         {% endif %}
         
     {% endfor %}
@@ -49,38 +51,40 @@
 
 <script>
     let slideIndex = 0;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    let slideTimer;
+
     showSlides();
 
     function showSlides() {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-
         // Set display style for all slides to none
-        for (i = 0; i < slides.length; i++) {
+        for (let i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";  
         }
 
         // Set active class for all dots to an empty string
-        for (i = 0; i < dots.length; i++) {
+        for (let i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
 
-        slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
-        }
+        slideIndex = Math.floor(Math.random() * slides.length); // Choose a random slide index
 
         // Display current slide
-        slides[slideIndex-1].style.display = "block";  
+        slides[slideIndex].style.display = "block";  
 
         // Add active class to the corresponding dot
-        dots[slideIndex-1].className += " active";
+        dots[slideIndex].className += " active";
 
-        // Change slide every 2 seconds
-        setTimeout(showSlides, 2000);
+        // Cancel the previous timer and set a new one
+        clearTimeout(slideTimer);
+        slideTimer = setTimeout(showSlides, 2000);
     }
 </script>
+
+
+
+
 <!-- End of Advertisement div -->
 
 
