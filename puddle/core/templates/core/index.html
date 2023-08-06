@@ -43,19 +43,30 @@
     {% endfor %}
 </div>
 
-<div style="text-align:center">
+<div style="text-align: center">
     {% for _ in items %}
-        <span class="dot"></span> 
+        <span class="dot truncate inline-block whitespace-nowrap overflow-ellipsis"></span>
     {% endfor %}
 </div>
 
+
 <script>
     let slideIndex = 0;
+    let prevSlideIndex = -1; // Initialize to a value outside the range of slides
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
     let slideTimer;
 
     showSlides();
+
+    function getRandomSlide() {
+        let newIndex;
+        do {
+            newIndex = Math.floor(Math.random() * slides.length);
+        } while (newIndex === prevSlideIndex); // Generate new index until it's different from the previous one
+        prevSlideIndex = newIndex;
+        return newIndex;
+    }
 
     function showSlides() {
         // Set display style for all slides to none
@@ -68,7 +79,7 @@
             dots[i].className = dots[i].className.replace(" active", "");
         }
 
-        slideIndex = Math.floor(Math.random() * slides.length); // Choose a random slide index
+        slideIndex = getRandomSlide(); // Choose a random slide index
 
         // Display current slide
         slides[slideIndex].style.display = "block";  
@@ -81,6 +92,7 @@
         slideTimer = setTimeout(showSlides, 2000);
     }
 </script>
+
 
 
 
