@@ -1,6 +1,6 @@
 # Puddle Marketplace 
 
-![Puddle Marketplace Frontpage](https://github.com/IanMalobaMwakha/Puddle/blob/master/media/readme_images/frontpage.png)
+![Puddle Marketplace Frontpage](puddle/media/readme_images/frontpage.png)
 
 ## Introduction
 Puddle Marketplace is an online platform designed for buying and selling used or second-hand items. This simple documentation outlines the functionality, architecture, and technologies used to create this marketplace, which serves as a valuable addition to my portfolio. Built with a technology stack encompassing Python, Django, Tailwind CSS, JavaScript, HTML, Git, and GitHub, Puddle Marketplace offers users a seamless experience for discovering, listing, and interacting with items of interest.
