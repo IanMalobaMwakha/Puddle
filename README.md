@@ -50,4 +50,4 @@ Puddle Marketplace is an online platform designed for buying and selling used or
 - **Git & GitHub:** Version control system and collaborative platform for tracking and sharing code changes.
 
 
-                   **********************************************************************************
+ **\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\***
