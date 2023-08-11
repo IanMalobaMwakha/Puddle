@@ -1,6 +1,6 @@
 # [Puddle Marketplace](http://ianmalobamwakha.pythonanywhere.com)
 
-Visit at: [http://ianmalobamwakha.pythonanywhere.com](http://ianmalobamwakha.pythonanywhere.com)
+Visit the Puddle Marketplace: [http://ianmalobamwakha.pythonanywhere.com](http://ianmalobamwakha.pythonanywhere.com)
 
 
 ## Introduction
