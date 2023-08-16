@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&@6&=25#-nubr3eus@nhn+_wn*z1g*w6!7jdk5tsosjj%2ft=0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS =  []
+ALLOWED_HOSTS =  ["*"]
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
@@ -59,6 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'puddle.urls'
