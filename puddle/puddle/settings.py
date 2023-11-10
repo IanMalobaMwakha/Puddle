@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'dashboard',
     'items',
     'ckeditor',
+    'whitenoise.runserver_nostatic',
     
 ]
 
@@ -61,6 +62,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    
 ]
 
 ROOT_URLCONF = 'puddle.urls'
