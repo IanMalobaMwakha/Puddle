@@ -1,4 +1,4 @@
-# [Puddle Marketplace]
+# Puddle Marketplace
 
 
 
