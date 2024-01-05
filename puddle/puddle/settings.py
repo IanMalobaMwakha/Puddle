@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'dashboard',
     'items',
     'ckeditor',
+    'whitenoise',
     'whitenoise.runserver_nostatic',
     
 ]
