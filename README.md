@@ -1,54 +1,97 @@
 # Puddle Marketplace
-https://www.puddlemarketplace.co.ke/
-
 
 ## Introduction
-Puddle Marketplace is an online platform designed for buying and selling used or second-hand items. This simple documentation outlines the functionality, architecture, and technologies used to create this marketplace, which serves as a valuable addition to my portfolio. Built with a technology stack encompassing Python, Django, Tailwind CSS, JavaScript, HTML, Git, and GitHub, Puddle Marketplace offers users a seamless experience for discovering, listing, and interacting with items of interest.
+A simple online platform designed for buying and selling used or second-hand items. Built with Python, Django, Tailwind CSS, JavaScript and HTML.
+
+
+## Installation
+
+1. Clone the repository:
+    ```
+    git clone https://github.com/IanMalobaMwakha/Puddle.git
+    ```
+
+2. Navigate to the project directory.
+
+3. Create a virtual environment:
+    - For Windows:
+        ```
+        python -m venv venv
+        venv\Scripts\activate.bat
+        ```
+    - For Unix or MacOS:
+        ```
+        python -m venv venv
+        source venv/bin/activate
+        ```
+
+4. Update pip:
+    ```
+    python -m pip install --upgrade pip
+    ```
+
+5. Install dependencies:
+    ```
+    pip install -r requirements.txt
+    ```
 
 ![Puddle Marketplace Frontpage](puddle/media/readme_images/frontpage.png)
-
 
 ## Apps
 
 ### Core
-- The Core app acts as the foundation, providing a consistent layout across the entire website.
-- The user interface includes a fixed navbar at the top, featuring a logo, title, and navigation buttons.
-- Dynamic buttons are displayed based on user authentication status, facilitating actions like item addition, search, sign-up, log-in, inbox access, and profile management.
-- A footer contains essential links like About, Contact, Privacy Policy, Terms Of Use, FAQ, and Product Listing Policy.
-- Scroll-to-top button allows users to return to the page's beginning smoothly.
-- Previous page button enables easy navigation backward.
-- The index page showcases the latest items and incorporates advertisements using JavaScript-powered image rotation.
-- Items are displayed in rows, and categories offer filterable options to explore specific item types.
+- The Core app provides a consistent layout across the website.
+- It includes a fixed navbar, dynamic buttons based on user authentication, a footer with essential links, and navigation elements.
+- Features like scroll-to-top and previous page button enhance user experience.
+- The index page showcases latest items and incorporates advertisements.
 
 ### Profile
-- The Profile app enables users to personalize their profiles, including adding avatars, locations, and bios.
-- Users can delete their profiles, with automatic profile creation upon sign-up.
-- Login and Logout functionalities are integrated using Django's authentication system.
+- The Profile app allows users to personalize their profiles.
+- Users can add avatars, locations, and bios, with options to delete their profiles.
+- Login and Logout functionalities are integrated.
 
 ### Dashboard
-- The Dashboard app provides a dedicated space for users to manage their listed items.
-- It displays all items owned by the logged-in user and allows for quick navigation to item details.
+- The Dashboard app offers a space for users to manage their listed items.
+- It displays all items owned by the logged-in user.
 
 ### Items
-- The Items app hosts item-related models and the detail page layout.
-- The detail page showcases key information such as images (with JavaScript-enabled enlarging), item name, price, seller details, and descriptions.
-- User-specific options are dynamically displayed, offering edit and delete functions for owned items, or profile and contact options for other items.
-- Item details also present related items from the same category.
+- The Items app hosts item-related models and detail page layout.
+- The detail page showcases item information, images (with enlarging), seller details, and related items.
 
 ### Conversation
 - The Conversation app facilitates communication between users.
-- Users can access their conversations through the inbox.
-- Users can engage in ongoing discussions, with rich-text messaging via CKEditor.
+- Users can access their conversations through the inbox and engage in discussions with rich-text messaging.
 
 ## Tools, Frameworks, and Technologies Used
-- **Python:** The primary programming language used for backend logic and scripting.
-- **Django:** A powerful web framework that handles routing, authentication, and database interactions.
-- **Tailwind CSS:** A user-friendly CSS framework aiding in consistent and responsive design.
-- **JavaScript:** Used for dynamic behavior like scroll-to-top, image rotation, and interactive UI elements.
-- **HTML:** The foundational markup language for constructing the website's structure.
+- **Python:** Backend logic and scripting.
+- **Django:** Web framework handling routing, authentication, and database interactions.
+- **Tailwind CSS:** User-friendly CSS framework aiding in consistent and responsive design.
+- **JavaScript:** Dynamic behavior for UI elements.
+- **HTML:** Markup language for website structure.
 - **Git & GitHub:** Version control system and collaborative platform for tracking and sharing code changes.
+
+
+## Usage
+
+1. Navigate to the project directory.
+
+2. Start the development server:
+    ```
+    python manage.py runserver
+    ```
+
+3. Access the application in your web browser at the provided URL.
+
+## License
+
+This project is licensed under ......
+
+## Acknowledgements
+
+- Special thanks to the contributors of all the libraries and frameworks used in this project.
+- Icons made by [Iconify](https://github.com/iconify/iconify) from [www.iconify.design](https://iconify.design/).
+
+
 
 **Note:**
 This README is subject to updates, as the repository is still under development and testing. Some issues may still need to be resolved.
-
- **\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\***
