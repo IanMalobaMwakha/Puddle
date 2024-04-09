@@ -48,5 +48,7 @@ Puddle Marketplace is an online platform designed for buying and selling used or
 - **HTML:** The foundational markup language for constructing the website's structure.
 - **Git & GitHub:** Version control system and collaborative platform for tracking and sharing code changes.
 
+**Note:**
+This README is subject to updates, as the repository is still under development and testing. Some issues may still need to be resolved.
 
  **\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\***
